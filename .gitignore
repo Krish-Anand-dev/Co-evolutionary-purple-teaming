@@ -24,8 +24,3 @@ results/*
 .idea/
 .DS_Store
 Thumbs.db
-
-# Local planning material (not part of the repo)
-pack/
-Reading-List.pdf
-Research-Execution-Plan.xlsx
