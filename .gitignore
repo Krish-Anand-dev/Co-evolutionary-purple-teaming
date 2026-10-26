@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Raw experiment logs (summaries are committed, raw logs are not)
+results/*
+!results/.gitkeep
+!results/summaries/
+
+# Models / large artefacts
+*.gguf
+*.safetensors
+*.pt
+*.ckpt
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local planning material (not part of the repo)
+pack/
+Reading-List.pdf
+Research-Execution-Plan.xlsx
