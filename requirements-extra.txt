@@ -1,0 +1,2 @@
+# Extra pin on top of CAGE-4 Requirements.txt (see docs/setup.md)
+pyarrow==17.0.0

@@ -24,3 +24,6 @@ results/*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Third-party clones (CAGE-4 / CybORG)
+external/

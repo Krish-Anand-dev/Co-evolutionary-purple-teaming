@@ -33,4 +33,4 @@ Interface Contract tab of the execution plan (frozen in T03).
 
 ## Setup
 
-See `docs/setup.md` (written in T04).
+See [docs/setup.md](docs/setup.md).
