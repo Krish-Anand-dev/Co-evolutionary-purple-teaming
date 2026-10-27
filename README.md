@@ -34,3 +34,8 @@ Interface Contract tab of the execution plan (frozen in T03).
 ## Setup
 
 See [docs/setup.md](docs/setup.md).
+
+## Documentation
+
+- [docs/README.md](docs/README.md): index of the Blue-side docs (rules, Blue LLM agent, CAGE-4 telemetry findings, rating protocol) and how to reproduce the measurements.
+- [docs/references.md](docs/references.md): papers and links used by the project.
