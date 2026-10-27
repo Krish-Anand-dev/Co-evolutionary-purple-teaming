@@ -1,0 +1,4 @@
+# Extra packages for the Blue side (rules, Blue LLM agent, tests). Python 3.13 was used.
+# Separate from requirements-extra.txt, which is the CAGE-4 pin.
+pytest
+pysigma==2.0.1

@@ -1,0 +1,90 @@
+[
+  {
+    "rule_id": "static_01", "round": 0, "agent_id": "blue_0",
+    "title": "Any access to a decoy service", "level": "high",
+    "logsource": {"category": "network_connection"},
+    "detection": {"decoy": {"is_decoy": true}, "condition": "decoy"},
+    "confidence": 0.95,
+    "rationale": "Green users never use decoys (CAGE-4 README, Deception), so any access is an unambiguous Red signal."
+  },
+  {
+    "rule_id": "static_02", "round": 0, "agent_id": "blue_0",
+    "title": "Connection to SSH service port", "level": "medium",
+    "logsource": {"category": "network_connection"},
+    "detection": {"ssh": {"dst_port": 22}, "condition": "ssh"},
+    "confidence": 0.4,
+    "rationale": "In 3 dumped CAGE-4 episodes about 92% of well-known-port events were port 22 (exploit attempts and scans); green users also use it."
+  },
+  {
+    "rule_id": "static_03", "round": 0, "agent_id": "blue_0",
+    "title": "New process created by a service daemon", "level": "medium",
+    "logsource": {"category": "process_creation"},
+    "detection": {"daemon": {"parent_process|endswith": "d"}, "condition": "daemon"},
+    "confidence": 0.5,
+    "rationale": "A successful exploit shows up natively as a bare process record (PID only); the bridge adds the parent, so a daemon parent is the signal."
+  },
+  {
+    "rule_id": "static_04", "round": 0, "agent_id": "blue_0",
+    "title": "Elevated process on a host", "level": "high",
+    "logsource": {"category": "process_creation"},
+    "detection": {"elevated": {"privilege": "elevated"}, "condition": "elevated"},
+    "confidence": 0.7,
+    "rationale": "Privilege escalation (PrivilegeEscalate) is rare in normal green work."
+  },
+  {
+    "rule_id": "static_05", "round": 0, "agent_id": "blue_0",
+    "title": "Shell started by a service daemon", "level": "medium",
+    "logsource": {"category": "process_creation"},
+    "detection": {
+      "shell": {"process_name": ["sh", "bash", "cmd.exe", "powershell.exe"]},
+      "daemon": {"parent_process|endswith": "d"},
+      "condition": "shell and daemon"
+    },
+    "confidence": 0.6,
+    "rationale": "Exploited services typically spawn a shell; the parent name heuristic can also match benign daemons."
+  },
+  {
+    "rule_id": "static_06", "round": 0, "agent_id": "blue_0",
+    "title": "Probe of common remote-access ports", "level": "medium",
+    "logsource": {"category": "network_connection"},
+    "detection": {"ports": {"dst_port": [22, 3389, 445]}, "condition": "ports"},
+    "confidence": 0.4,
+    "rationale": "Service discovery touches remote-access ports; green traffic also uses them, so expect false positives."
+  },
+  {
+    "rule_id": "static_07", "round": 0, "agent_id": "blue_0",
+    "title": "Web service port probe", "level": "low",
+    "logsource": {"category": "network_connection"},
+    "detection": {"web": {"dst_port": [80, 443, 8080]}, "condition": "web"},
+    "confidence": 0.2,
+    "rationale": "Weak signal on its own: green users browse. Logged for correlation only."
+  },
+  {
+    "rule_id": "static_08", "round": 0, "agent_id": "blue_0",
+    "title": "Connection into a restricted zone", "level": "low",
+    "logsource": {"category": "network_connection"},
+    "detection": {"restricted": {"zone|contains": "restricted"}, "condition": "restricted"},
+    "confidence": 0.25,
+    "rationale": "Restricted zones carry mission-critical traffic; unusual sources deserve a look but this alone is noisy."
+  },
+  {
+    "rule_id": "static_09", "round": 0, "agent_id": "blue_0",
+    "title": "Service stopped or degraded", "level": "high",
+    "logsource": {"category": "service_event"},
+    "detection": {"svc": {"service_name|contains": ["stop", "degrad"]}, "condition": "svc"},
+    "confidence": 0.75,
+    "rationale": "Impact (T1489 Service Stop) and DegradeServices show up as service events."
+  },
+  {
+    "rule_id": "static_10", "round": 0, "agent_id": "blue_0",
+    "title": "Elevated process under a network service parent", "level": "high",
+    "logsource": {"category": "process_creation"},
+    "detection": {
+      "elevated": {"privilege": "elevated"},
+      "svc_parent": {"parent_process|endswith": "d"},
+      "condition": "elevated and svc_parent"
+    },
+    "confidence": 0.8,
+    "rationale": "Escalation directly under a daemon suggests an exploited service."
+  }
+]
