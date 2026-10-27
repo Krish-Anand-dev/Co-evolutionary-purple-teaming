@@ -1,0 +1,421 @@
+{
+ "llm": "Qwen3-30B-A3B-Instruct-2507-UD-Q3_K_XL",
+ "seed": 3,
+ "schema_constrained": "nested",
+ "max_tokens": 1500,
+ "prompt_hint": true,
+ "n_prompts": 50,
+ "objects": 241,
+ "valid_raw": 240,
+ "valid_final": 240,
+ "calls": 50,
+ "fallbacks": 0,
+ "duplicates": 0,
+ "rule_validity_raw": 0.995850622406639,
+ "rule_validity_final": 0.995850622406639,
+ "prompts_with_fallback": 0,
+ "mean_calls_per_prompt": 1.0,
+ "median_latency_s": 30.692630300001838,
+ "per_prompt": [
+  {
+   "i": 0,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 1,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 2,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 3,
+   "objects": 5,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 4,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 5,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 6,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 7,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 8,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 9,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 10,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 11,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 12,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 13,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 14,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 15,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 16,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 17,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 18,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 19,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 20,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 21,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 22,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 23,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 24,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 25,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 26,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 27,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 28,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 29,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 30,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 31,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 32,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 33,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 34,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 35,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 36,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 37,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 38,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 39,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 40,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 41,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 42,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 43,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 44,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 45,
+   "objects": 4,
+   "valid_raw": 4,
+   "valid_final": 4,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 46,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 47,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 48,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  },
+  {
+   "i": 49,
+   "objects": 5,
+   "valid_raw": 5,
+   "valid_final": 5,
+   "calls": 1,
+   "fallback": false
+  }
+ ]
+}

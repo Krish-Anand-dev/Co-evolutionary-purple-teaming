@@ -55,6 +55,7 @@ def main() -> None:
     ap.add_argument("--schema-strict", action="store_true", help="schema that also restricts selection keys to the visible event fields")
     ap.add_argument("--schema-nested", action="store_true",
                     help="schema with selections BEFORE condition at rule level (combine with --schema-strict)")
+    ap.add_argument("--hint", action="store_true", help="add the LIMITS OF THE RULE LANGUAGE paragraph to the prompt")
     ap.add_argument("--max-tokens", type=int, default=1000)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default="results/t18_validity.json")
@@ -77,7 +78,7 @@ def main() -> None:
     for i in range(n_prompts):
         # Fresh agent per prompt so prompts are independent samples (no accumulated rule memory).
         agent = BlueLLMAgent(f"blue_{i % 5}", client, use_schema=args.schema, strict_schema=args.schema_strict,
-                             nested_schema=args.schema_nested)
+                             nested_schema=args.schema_nested, prompt_hint=args.hint)
         ctx = {"round": 1 + i % 10, "feedback": FEEDBACK_POOL[: 1 + i % len(FEEDBACK_POOL)], "last_alerts": []}
         agent.propose_rules(ctx)
         s = agent.history[-1]
@@ -93,7 +94,7 @@ def main() -> None:
 
     result = {
         "llm": args.label if args.llama_server else args.ollama or "MOCK fault model (NOT a language model)",
-        "seed": args.seed, "schema_constrained": ("nested" if args.schema_nested else "flat") + ("+strict" if args.schema_strict else "") if (args.schema or args.schema_strict or args.schema_nested) else False, "max_tokens": args.max_tokens, "n_prompts": n_prompts, **totals,
+        "seed": args.seed, "schema_constrained": ("nested" if args.schema_nested else "flat") + ("+strict" if args.schema_strict else "") if (args.schema or args.schema_strict or args.schema_nested) else False, "max_tokens": args.max_tokens, "prompt_hint": args.hint, "n_prompts": n_prompts, **totals,
         "rule_validity_raw": totals["valid_raw"] / totals["objects"] if totals["objects"] else 0.0,
         "rule_validity_final": totals["valid_final"] / totals["objects"] if totals["objects"] else 0.0,
         "prompts_with_fallback": totals["fallbacks"],

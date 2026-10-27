@@ -32,6 +32,8 @@ Status 27-Oct-2026. Code is local (not yet in the shared repo). Everything below
 - Speed observed: about 19.6 tok/s generation, about 96 tok/s prompt processing, roughly 35-46 s per rule-writing call (about 700 output tokens). Feeds T09 / Decision D1.
 
 ## Measured: valid-rule rate on 50 prompts (T18 acceptance)
+**Why these measurements exist.** The Blue agent only works if a local LLM reliably writes rules the system accepts: an invalid rule wastes a slow LLM call (26-39 s here) and scores 0 on the RuleValidity term of the paper's reward (Eq. 2). The runs below settle three choices: (1) does T18 meet its acceptance test (valid-rule rate over 50 prompts); (2) which model fits the compute budget (seconds per call drive the Mode B GPU hours in the Experiments tab); (3) how much help the model needs (JSON schema, prompt wording, parser repairs). Validity is NOT detection quality: whether the rules catch anything needs the telemetry bridge and labels (T16, T21). After these runs validity is no longer the bottleneck.
+
 Setup for all runs: a fresh agent per prompt, `blue_{i%5}`, round `1 + i%10`, feedback = first `1 + i%5` lines of a fixed pool, no previous rules. Model: gemma-4-26B-A4B-it-UD-Q3_K_M, temperature 0.2. Result summaries are committed in [`results/summaries/`](../results/summaries/); the raw model answers (`*.raw.jsonl`, about 150 KB per run) are gitignored, so re-run the commands below to regenerate them.
 
 **Run 1 (seed 0, parser BEFORE the two fixes) - baseline**
@@ -86,6 +88,18 @@ Setup for all runs: a fresh agent per prompt, `blue_{i%5}`, round `1 + i%10`, fe
 
   It runs as smoothly as Gemma and GLM (about 23 tok/s). Unlike them it does not reach 100%, and the schema makes no difference for it (96.0% vs 96.4%; this model did not produce the malformed-JSON answers that Gemma did, so there was little for the schema to fix).
 - **The remaining failures follow one pattern across ALL models:** they come from one specific prompt in each group of five (the one with the longest or most pointed feedback), where the model asks for something the single-event rule language cannot express. Seen: negated modifiers (`dst_port|not_in`, `parent_process|notcontains`), a field that does not exist (`duration`, 9 rules), and an aggregation (`event_id|count`, 9 rules). The nested schema fixes structure but cannot stop an invented field or modifier. Two ways to handle it, not tried: (a) say in the prompt that negation is done with `NOT <selection>` and that counts, durations and thresholds are not available; (b) accept it as a real limit of the rule language (no aggregation or time windows) and discuss it in the paper. Repair calls never fired in any run because every prompt still had at least one valid rule.
+- **Prompt hint "LIMITS OF THE RULE LANGUAGE" (`--hint`, `prompt.LIMITS_HINT`), 28-Oct-2026, same 50 prompts, seed 3.** It tells the model: there is no negated modifier (use `NOT <selection>`), no counts / thresholds / durations / time windows, only the listed fields and modifiers. Paired results:
+
+  | | rules valid as written | valid after parser fixes | invalid rules | answers with 4 rules instead of 5 |
+  |---|---|---|---|---|
+  | Qwen3-30B-A3B, nested, no hint | 239 / 249 (96.0%) | 239 / 249 | 10 (nine `duration`, one `notcontains`) | 1 |
+  | **Qwen3-30B-A3B, nested, WITH hint** | **240 / 241 (99.6%)** | **240 / 241** | **1** (a condition naming an undefined selection) | 9 |
+  | Gemma 4, no schema, no hint (arm A) | 241 / 250 (96.4%) | 241 / 250 | 9 (`not_in`) | 0 |
+  | Gemma 4, no schema, WITH hint | 136 / 250 (54.4%) | 241 / 250 (96.4%) | 9 (a single-selection rule with no `condition`) | 0 |
+
+  Reading it: for Qwen the hint worked as intended (10 invalid rules down to 1, same speed, same 43 distinct detections), and it seems to make the model drop a rule it cannot express (9 answers have 4 rules) instead of inventing a field. For Gemma without a schema the hint did NOT help: the final validity is identical (96.4%), the `not_in` failures disappeared and the malformed-JSON answers dropped from 9 to 0, but the model now writes `condition` outside `detection` in 105 of 250 rules and often omits it for one-selection rules, so the result depends on the parser repairs. One seed, one run per row.
+  New parser repair added after seeing the Gemma-hint answers: a rule with exactly one selection and no `condition` gets that selection as its condition (tested; offline replay of the Gemma-hint run gives 250 / 250, but that is in-sample because the fix was designed from those answers).
+  **Current best configuration for the Blue agent:** nested layout + hint + parser repairs. Gemma 4 and GLM reach 100% with the nested schema alone; Qwen3-30B-A3B reaches 99.6% only with the hint added.
 - **Where the models live:** convention is one model on the SSD (`C:\AI\Models\<name>\`) and the rest on the HDD (`D:\AI\Models\<name>\`) with the empty folders left in place. State at the end of the 28-Oct runs: Gemma on C:; GLM-4.7-Flash and Qwen3-30B-A3B-Instruct-2507 on D: (blank placeholders on C:). The old Qwen3.8-27B dense model is gone from both drives.
 - **Gemma and GLM both need `chat_template_kwargs {"enable_thinking": false}`** or the whole token budget goes into hidden reasoning (verified for both).
 

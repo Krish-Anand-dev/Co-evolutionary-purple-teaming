@@ -42,9 +42,10 @@ class ProposalStats:
 class BlueLLMAgent:
     def __init__(self, agent_id: str, client: LLMClient, max_rules: int = 5, max_repairs: int = 1,
                  max_active: int = 20, playbook: PlaybookParams | None = None, use_schema: bool = False,
-                 strict_schema: bool = False, nested_schema: bool = False):
+                 strict_schema: bool = False, nested_schema: bool = False, prompt_hint: bool = False):
         self.agent_id, self.client = agent_id, client
         self.nested = nested_schema
+        self.hint = prompt_hint
         constrained = use_schema or strict_schema or nested_schema
         self.schema = (rule_json_schema(max_rules, strict_fields=strict_schema, nested=nested_schema)
                        if constrained else None)
@@ -84,8 +85,8 @@ class BlueLLMAgent:
 
     def _call(self, ctx: dict[str, Any], stats: ProposalStats, repair_errors: list[str] | None,
               start_idx: int) -> list[Rule]:
-        text, meta = self.client.generate(build_prompt(ctx, self.max_rules, repair_errors, nested=self.nested),
-                                          self.schema)
+        text, meta = self.client.generate(
+            build_prompt(ctx, self.max_rules, repair_errors, nested=self.nested, hint=self.hint), self.schema)
         stats.llm_calls += 1
         stats.latency_s += float(meta.get("latency_s") or 0.0)
         objects = extract_rule_objects(text)[: self.max_rules]
