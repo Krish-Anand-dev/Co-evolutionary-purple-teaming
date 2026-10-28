@@ -1,6 +1,6 @@
 # Setup: CAGE-4 (CybORG) in a clean venv
 
-Written for T04 by Krish. Verified on Windows 11, Python 3.12.10, git 2.53, CPU-only torch.
+Written for T04 by Krish. Also verified for T05 on Windows, Python 3.12.3, CPU-only torch.
 Commands below are PowerShell; the Git Bash equivalents differ only in the venv
 activation line. Linux/macOS notes are at the end and are **not yet tested**.
 
