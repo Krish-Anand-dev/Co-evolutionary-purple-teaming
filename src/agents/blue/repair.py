@@ -94,6 +94,12 @@ def normalise_rule(d: dict[str, Any]) -> dict[str, Any]:
     detection = out.get("detection")
     if isinstance(detection, dict) and "condition" not in detection and isinstance(out.get("condition"), str):
         out["detection"] = {**detection, "condition": out.pop("condition")}
+    # A rule with exactly one selection and no condition can only mean "that selection" (seen with the prompt hint).
+    detection = out.get("detection")
+    if isinstance(detection, dict) and "condition" not in detection:
+        names = [k for k, v in detection.items() if isinstance(v, dict)]
+        if len(names) == 1 and len(detection) == 1:
+            out["detection"] = {**detection, "condition": names[0]}
     if isinstance(out.get("level"), str):
         out["level"] = out["level"].strip().lower()
     conf = out.get("confidence")

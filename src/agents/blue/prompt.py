@@ -67,10 +67,22 @@ def _nest(rule: dict[str, Any]) -> dict[str, Any]:
     return ordered
 
 
+LIMITS_HINT = [
+    "LIMITS OF THE RULE LANGUAGE (rules that use anything below are rejected):",
+    "- There is NO negated modifier: no not_in, notcontains, not_equals, not_startswith. To exclude something, "
+    "write a selection for it and use NOT in the condition.",
+    "- There are NO counts, sums, thresholds, rates, time windows or durations. A rule judges ONE event at a time; "
+    "do not try to express 'many', 'repeated' or 'long'.",
+    "- Only the listed fields and the three listed modifiers exist.",
+]
+
+
 def build_prompt(round_ctx: dict[str, Any], max_rules: int = 5, repair_errors: list[str] | None = None,
-                 nested: bool = False) -> str:
+                 nested: bool = False, hint: bool = False) -> str:
     """nested=True shows the layout with `selections` before `condition` at rule level (pairs with the nested
-    schema in schema.py; repair.extract_rule_objects converts it back to a `detection` block)."""
+    schema in schema.py; repair.extract_rule_objects converts it back to a `detection` block).
+    hint=True adds LIMITS_HINT: measured failures across models were all requests for things the rule language
+    cannot express (negated modifiers, a duration field, a count aggregation)."""
     agent_id = round_ctx.get("agent_id", "blue_0")
     previous = round_ctx.get("previous_rules", [])
     feedback = round_ctx.get("feedback", [])
@@ -107,6 +119,7 @@ def build_prompt(round_ctx: dict[str, Any], max_rules: int = 5, repair_errors: l
         "- condition uses only selection names, AND, OR, NOT and parentheses.",
         "- Use ONLY these fields: " + ", ".join(sorted(VISIBLE_FIELDS)) + ".",
         "- Do not invent fields. Do not use ids, rule_id, round or agent_id (they are added for you).",
+        *(LIMITS_HINT if hint else []),
         "EXAMPLES OF VALID RULES:",
         json.dumps(examples, indent=1),
         "ALERTS YOUR CURRENT RULES FIRED LAST ROUND:",
