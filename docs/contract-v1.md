@@ -1,4 +1,4 @@
-﻿# Interface Contract v1
+# Interface Contract v1
 
 
 
@@ -124,6 +124,14 @@ Allowed privilege values:
 
 
 
+
+- `provenance`: Event origin classification: `native`, `enriched`, or `synthetic`. This field is retained in the internal JSONL log for transparent reporting and must never be exposed to the Blue agent.
+
+- `service_event`: Event category for service-level events. Synthetic `PrivilegeEscalate` and `Impact` events may be emitted when enabled by configuration; the pilot defaults to native-only telemetry. Synthetic events must remain clearly distinguishable from native and enriched events.
+
+
+These ground-truth fields are internal metadata and must not be exposed to the Blue agent. The bridge leaves `label_red`, `source_action`, and `source_agent` as `None` for now. Assigning these fields at event creation time by wrapping `Action.execute` with a context variable is a proposed approach pending Krish's confirmation. T21 (labeling hook) is owned by Krish.
+
 **Security boundary:** Hidden ground-truth fields must never be exposed to the Blue agent.
 
 
@@ -177,8 +185,13 @@ CAGE-4 exposes limited telemetry, so the paper must disclose when events are der
 - `update(trajectories)`: Update agent state using collected trajectories.
 
 
+The implemented CAGE-4 adapter API is `TelemetryBridge(seed)`. Its methods are:
 
-Exact argument and return types must be aligned with the implemented CAGE-4 adapter before integration.
+- `step_events(step, {blue_agent: native_obs}) -> list[Event]`: Converts the supplied native observation into a list of events. The `native_obs` input comes from `env.get_observation(blue_agent)` with `success` and `action` excluded.
+- `reset(seed)`: Resets the bridge for a new episode using the supplied seed.
+- `blue_view(events)`: Produces the Blue-agent-visible view of the supplied events, excluding hidden ground-truth fields.
+
+The API has been tested on recorded episodes. Live-episode integration remains pending and must be verified before integration is considered complete.
 
 
 
@@ -272,9 +285,9 @@ Default seed split:
 
 
 
-- Tuning seeds: `0–9`
+- Tuning seeds: `0â€“9`
 
-- Test seeds: `100–109`
+- Test seeds: `100â€“109`
 
 
 
@@ -310,7 +323,7 @@ Modules should be testable with mock agents and mock events before full integrat
 
 
 
-Full integration is planned for T27–T29.
+Full integration is planned for T27â€“T29.
 
 
 
