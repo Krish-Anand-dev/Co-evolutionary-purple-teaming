@@ -1,0 +1,319 @@
+{
+ "_source": "Real CAGE-4 native Blue observations dumped with scripts/dump_native_events.py (passive Blue, seed 0; and decoy-deploying Blue, seed 0). Trimmed to a few host records. Not synthetic.",
+ "passive_seed0": [
+  {
+   "step": 0,
+   "blue_obs": {
+    "blue_agent_4": {
+     "admin_network_subnet_user_host_1": {
+      "Processes": [
+       {
+        "Connections": [
+         {
+          "local_port": 49473,
+          "local_address": "10.0.184.135"
+         }
+        ]
+       }
+      ],
+      "Interface": [
+       {
+        "ip_address": "10.0.184.135"
+       }
+      ],
+      "System info": {
+       "Hostname": "admin_network_subnet_user_host_1",
+       "OSType": "LINUX",
+       "OSDistribution": "KALI",
+       "OSVersion": "K2019_4",
+       "Architecture": "Architecture.x64",
+       "position": "[0. 0.]"
+      }
+     }
+    }
+   }
+  },
+  {
+   "step": 4,
+   "blue_obs": {
+    "blue_agent_3": {
+     "operational_zone_b_subnet_user_host_7": {
+      "Processes": [
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 52435,
+          "local_address": "10.0.68.172",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 1,
+          "remote_port": 51364,
+          "local_address": "10.0.68.172",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 80,
+          "remote_port": 49156,
+          "local_address": "10.0.68.172",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 3390,
+          "remote_port": 55807,
+          "local_address": "10.0.68.172",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       }
+      ],
+      "Interface": [
+       {
+        "ip_address": "10.0.68.172"
+       }
+      ],
+      "System info": {
+       "Hostname": "operational_zone_b_subnet_user_host_7",
+       "OSType": "LINUX",
+       "OSDistribution": "KALI",
+       "OSVersion": "K2019_4",
+       "Architecture": "Architecture.x64",
+       "position": "[0. 0.]"
+      }
+     }
+    }
+   }
+  },
+  {
+   "step": 19,
+   "blue_obs": {
+    "blue_agent_3": {
+     "operational_zone_b_subnet_router": {
+      "Processes": [
+       {
+        "Connections": [
+         {
+          "remote_port": 22,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       }
+      ],
+      "Interface": [
+       {
+        "ip_address": "10.0.68.251"
+       }
+      ],
+      "System info": {
+       "Hostname": "operational_zone_b_subnet_router",
+       "OSType": "LINUX",
+       "OSDistribution": "UBUNTU",
+       "OSVersion": "UNKNOWN",
+       "Architecture": "Architecture.x64",
+       "position": "[0. 0.]"
+      }
+     },
+     "operational_zone_b_subnet_server_host_2": {
+      "Processes": [
+       {
+        "Connections": [
+         {
+          "remote_port": 22,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "Connections": [
+         {
+          "local_port": 22,
+          "remote_port": 57456,
+          "local_address": "10.0.68.251",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       },
+       {
+        "PID": 9752
+       }
+      ],
+      "Interface": [
+       {
+        "ip_address": "10.0.68.251"
+       }
+      ],
+      "System info": {
+       "Hostname": "operational_zone_b_subnet_server_host_2",
+       "OSType": "LINUX",
+       "OSDistribution": "KALI",
+       "OSVersion": "K2019_4",
+       "Architecture": "Architecture.x64",
+       "position": "[0. 0.]"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "decoy_seed0": [
+  {
+   "step": 1,
+   "blue_obs": {
+    "blue_agent_3": {
+     "operational_zone_b_subnet_server_host_0": {
+      "Processes": [
+       {
+        "PID": 9589,
+        "PPID": 1,
+        "service_name": "tomcat",
+        "username": "ubuntu",
+        "Properties": [
+         "rfi"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "step": 12,
+   "blue_obs": {
+    "blue_agent_3": {
+     "operational_zone_b_subnet_server_host_0": {
+      "Processes": [
+       {
+        "Connections": [
+         {
+          "local_port": 443,
+          "remote_port": 49269,
+          "local_address": "10.0.68.254",
+          "remote_address": "10.0.68.195"
+         }
+        ]
+       }
+      ],
+      "Interface": [
+       {
+        "ip_address": "10.0.68.254"
+       }
+      ],
+      "System info": {
+       "Hostname": "operational_zone_b_subnet_server_host_0",
+       "OSType": "LINUX",
+       "OSDistribution": "KALI",
+       "OSVersion": "K2019_4",
+       "Architecture": "Architecture.x64",
+       "position": "[0. 0.]"
+      }
+     }
+    }
+   }
+  }
+ ]
+}
