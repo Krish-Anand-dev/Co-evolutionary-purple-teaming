@@ -285,9 +285,9 @@ Default seed split:
 
 
 
-- Tuning seeds: `0â€“9`
+- Tuning seeds: `0–9`
 
-- Test seeds: `100â€“109`
+- Test seeds: `100–109`
 
 
 
@@ -323,7 +323,7 @@ Modules should be testable with mock agents and mock events before full integrat
 
 
 
-Full integration is planned for T27â€“T29.
+Full integration is planned for T27–T29.
 
 
 
