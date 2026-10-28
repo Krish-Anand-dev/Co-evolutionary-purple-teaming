@@ -60,7 +60,7 @@ A rule contains:
 
 - `logsource.category`: Event category to which the rule applies.
 
-- `detection.selection`: Mapping of event fields to values, lists or supported patterns.
+- `detection.selection`: Mapping of named selections, each defining event fields and their values, lists or supported patterns.
 
 - `detection.condition`: Boolean expression over named selections.
 
@@ -78,7 +78,7 @@ The initial condition grammar supports named selections with `AND`, `OR` and `NO
 
 
 
-## 3. Event Interface â€” DRAFT
+## 3. Event Interface - DRAFT
 
 
 
@@ -272,9 +272,9 @@ Default seed split:
 
 
 
-- Tuning seeds: `0â€“9`
+- Tuning seeds: `0–9`
 
-- Test seeds: `100â€“109`
+- Test seeds: `100–109`
 
 
 
@@ -310,7 +310,7 @@ Modules should be testable with mock agents and mock events before full integrat
 
 
 
-Full integration is planned for T27â€“T29.
+Full integration is planned for T27–T29.
 
 
 
