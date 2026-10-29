@@ -76,7 +76,7 @@ class TelemetryBridge:
                 if isinstance(rec, dict):
                     for iface in rec.get("Interface", []) or []:
                         if iface.get("ip_address"):
-                            self._host_by_ip[iface["ip_address"]] = host
+                            self._host_by_ip[str(iface["ip_address"])] = host
         # Pass 2: convert.
         events: list[Event] = []
         for agent in sorted(blue_obs):
@@ -114,11 +114,13 @@ class TelemetryBridge:
         if conn is not None and "remote_port" in conn and "remote_address" in conn and "local_address" in conn:
             target_side = "local_port" in conn
             dst_port = conn["local_port"] if target_side else conn["remote_port"]
+            # A live observation carries ipaddress.IPv4Address objects, recorded dumps carry strings: always emit strings.
+            src_ip, dst_ip = str(conn["remote_address"]), str(conn["local_address"])
             # The target is this host for a target-side event; for a path-side event (seen on a router) look it up by IP.
-            target_host = host if target_side else self._host_by_ip.get(conn["local_address"])
+            target_host = host if target_side else self._host_by_ip.get(dst_ip)
             return Event(
                 event_id=self._next_id(), category="network_connection",
-                src_ip=conn["remote_address"], dst_ip=conn["local_address"], dst_port=dst_port,
+                src_ip=src_ip, dst_ip=dst_ip, dst_port=dst_port,
                 protocol="tcp", service_name=PORT_SERVICE.get(dst_port),
                 is_decoy=dst_port in self._decoy_ports.get(target_host, ()),
                 provenance="native", enriched_fields=("protocol", "service_name"), **base,

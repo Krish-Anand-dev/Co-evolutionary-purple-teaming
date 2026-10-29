@@ -137,6 +137,27 @@ def test_event_ids_are_unique_sequential_and_reset_restarts_everything():
     assert again[0].event_id == "e0000001" and not again[0].is_decoy      # decoy registry was cleared too
 
 
+def test_live_ipaddress_objects_give_the_same_json_serialisable_events_as_recorded_strings():
+    import ipaddress
+
+    def as_objects(x):                                 # a live observation holds IPv4Address, a recorded dump strings
+        if isinstance(x, dict):
+            return {k: (ipaddress.ip_address(v) if k in ("local_address", "remote_address", "ip_address") else as_objects(v))
+                    for k, v in x.items()}
+        if isinstance(x, list):
+            return [as_objects(v) for v in x]
+        return x
+
+    live = copy.deepcopy(PASSIVE + DECOY)
+    for s in live:
+        s["blue_obs"] = as_objects(s["blue_obs"])
+    recorded = [e.to_log() for step in run(PASSIVE + DECOY)[1] for e in step]
+    live_events = [e.to_log() for step in run(live)[1] for e in step]
+    assert live_events == recorded
+    json.dumps(live_events)                            # must not raise
+    assert any(e["is_decoy"] for e in live_events)
+
+
 def test_unknown_records_are_skipped_and_counted_not_fatal():
     bridge = TelemetryBridge(0)
     obs = {"blue_agent_0": {"h_subnet_user_host_0": {"Processes": [{"Weird": 1}, {"Connections": []}], "Interface": []}}}
