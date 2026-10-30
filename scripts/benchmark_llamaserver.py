@@ -51,10 +51,10 @@ def check_server(base_url: str, timeout: float) -> None:
         raise SystemExit(f"Could not reach llama-server at {base_url}. Start it first. Details: {exc}")
 
 
-def one_call(client: LlamaServerClient, schema: dict, index: int, max_rules: int) -> dict:
+def one_call(client: LlamaServerClient, schema: dict, index: int, max_rules: int, hint: bool = True) -> dict:
     ctx = {"round": 1 + index % 10, "agent_id": f"blue_{index % 5}",
            "feedback": FEEDBACK_POOL[: 1 + index % len(FEEDBACK_POOL)], "last_alerts": [], "previous_rules": []}
-    prompt = build_prompt(ctx, max_rules, None, nested=True, hint=True)
+    prompt = build_prompt(ctx, max_rules, None, nested=True, hint=hint)
     text, meta = client.generate(prompt, schema)
     try:
         json.loads(text)
@@ -78,6 +78,7 @@ def main() -> int:
     ap.add_argument("--warmup", type=int, default=1)
     ap.add_argument("--max-tokens", type=int, default=1000, help="output cap; the Blue agent uses 1000")
     ap.add_argument("--max-rules", type=int, default=5)
+    ap.add_argument("--no-hint", action="store_true", help="leave out the 'limits of the rule language' paragraph")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--timeout", type=float, default=900.0)
     ap.add_argument("--out", default="results/bench_llamaserver.csv")
@@ -92,7 +93,7 @@ def main() -> int:
 
     for w in range(args.warmup):
         print(f"  warm-up {w + 1}/{args.warmup} ...", flush=True)
-        one_call(client, schema, 1000 + w, args.max_rules)
+        one_call(client, schema, 1000 + w, args.max_rules, not args.no_hint)
 
     rows = []
     for run in range(1, args.runs + 1):
@@ -100,7 +101,7 @@ def main() -> int:
         row = {k: "" for k in FIELDS}
         row.update(timestamp_utc=datetime.now(timezone.utc).isoformat(), model=args.label, run=run, valid_json=False)
         try:
-            res = one_call(client, schema, run, args.max_rules)
+            res = one_call(client, schema, run, args.max_rules, not args.no_hint)
             m = res["meta"]
             row.update(latency_s=round(m["latency_s"], 3), prompt_tokens=m.get("tokens_in") or "",
                        output_tokens=m.get("tokens_out") or "",
