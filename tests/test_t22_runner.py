@@ -125,3 +125,34 @@ def test_invalid_worker_count_is_rejected(sample_config, tmp_path):
             tmp_path / "invalid_workers.jsonl",
             max_workers=0,
         )
+def test_round_extras_callback_is_logged(sample_config, tmp_path):
+    output = tmp_path / "extras.jsonl"
+    callback_calls = []
+
+    def round_extras(round_results):
+        callback_calls.append(round_results)
+        return {
+            "precision": 0.75,
+            "recall": 0.60,
+            "fpr": 0.10,
+        }
+
+    run_experiment(
+        sample_config,
+        output,
+        round_extras_fn=round_extras,
+    )
+
+    records = read_jsonl(output)
+    round_records = [
+        record for record in records
+        if "mock_mean_reward" in record
+    ]
+
+    assert len(callback_calls) == 4
+    assert len(round_records) == 4
+
+    for record in round_records:
+        assert record["precision"] == 0.75
+        assert record["recall"] == 0.60
+        assert record["fpr"] == 0.10
