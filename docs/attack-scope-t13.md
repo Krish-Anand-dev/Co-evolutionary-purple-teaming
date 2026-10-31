@@ -49,9 +49,9 @@ exploit on another host), no persistence, no log tampering.
 | ExploitRemoteService | T1210 Exploitation of Remote Services | Lateral Movement (not Initial Access) | checked (Bhavit) |
 | PrivilegeEscalate | tactic TA0004 Privilege Escalation (a tactic, not a technique) | Privilege Escalation | checked (Bhavit); technique optional |
 | Impact | T1489 Service Stop | Impact | checked (Bhavit) |
-| DegradeServices | **open.** Mechanically it also stops a service (same as Impact), so T1489 fits the code; Bhavit's candidate T1499 Endpoint DoS fits the *intent* | Impact | NOT verified |
-| DiscoverDeception | no mapping; say "no direct ATT&CK technique" rather than force one | - | open |
-| Withdraw | no mapping (it removes Red's own presence; it is not the draft's "Indicator Removal") | - | open |
+| DegradeServices | T1489 Service Stop (the code stops a service, same as Impact). T1499 Endpoint Denial of Service (Impact) fits the intent: say "T1489; T1499 for intent" | Impact | checked (Bhavit, 31-Oct) |
+| DiscoverDeception | no direct technique. T1497 Virtualization/Sandbox Evasion covers VM/sandbox checks only, not honeypot probing, so do not use it | - | checked (Bhavit, 31-Oct) |
+| Withdraw | no direct technique. T1070 Indicator Removal (tactic now named Stealth, TA0005) is only a partial fit (it covers removing traces such as logs and files, not dropping sessions) | - | checked (Bhavit, 31-Oct) |
 | Sleep | not an attack action; leave out of the table | - | - |
 
 Rows to delete from the old Table 2: T1595 Active Scanning, T1070 Indicator Removal (no CAGE-4 counterpart), T1110, T1021, T1543,
@@ -69,7 +69,7 @@ I have not checked those IDs.
 
 ## 5. Open items before T13 is done
 1. Team decision on D3 (this scope vs narrowing it to the three Blue-visible actions). Linked to D2 / T12.
-2. Bhavit: re-open the ATT&CK pages and settle DegradeServices, DiscoverDeception, Withdraw.
+2. ~~Bhavit: re-open the ATT&CK pages~~ DONE 31-Oct (T1499, T1489, T1497, T1070 re-opened; pages read through a summarising fetch tool, so Krish should glance at the live pages once when finalising the table).
 3. **Regenerate the paper PDF:** I only have the finished PDF, not its source (LaTeX/Word). Whoever built the draft has to apply
    the new Table 2 and the per-step-LLM / telemetry wording and regenerate it.
 4. The single-line action list in `00_PROJECT_CONTEXT.md` (which includes `DiscoverNetworkServices`) should be corrected too.
