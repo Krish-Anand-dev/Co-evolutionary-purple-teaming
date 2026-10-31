@@ -6,22 +6,22 @@
 
 | condition | round | precision mean [95% CI] | n seeds | missing |
 |---|---|---|---|---|
-| static_rules_decoy_blue | 1 | 0.868 [0.855, 0.882] | 10 | 0 |
-| static_rules_passive_blue | 1 | 0.859 [0.847, 0.871] | 10 | 0 |
+| static_rules_decoy_blue | 1 | 0.950 [0.944, 0.956] | 10 | 0 |
+| static_rules_passive_blue | 1 | 0.947 [0.940, 0.954] | 10 | 0 |
 
 ### recall
 
 | condition | round | recall mean [95% CI] | n seeds | missing |
 |---|---|---|---|---|
-| static_rules_decoy_blue | 1 | 0.895 [0.886, 0.904] | 10 | 0 |
-| static_rules_passive_blue | 1 | 0.896 [0.890, 0.902] | 10 | 0 |
+| static_rules_decoy_blue | 1 | 0.943 [0.936, 0.951] | 10 | 0 |
+| static_rules_passive_blue | 1 | 0.946 [0.940, 0.952] | 10 | 0 |
 
 ### fpr
 
 | condition | round | fpr mean [95% CI] | n seeds | missing |
 |---|---|---|---|---|
-| static_rules_decoy_blue | 1 | 0.682 [0.649, 0.715] | 10 | 0 |
-| static_rules_passive_blue | 1 | 0.688 [0.657, 0.724] | 10 | 0 |
+| static_rules_decoy_blue | 1 | 0.252 [0.225, 0.281] | 10 | 0 |
+| static_rules_passive_blue | 1 | 0.253 [0.212, 0.293] | 10 | 0 |
 
 ### time_to_detect
 

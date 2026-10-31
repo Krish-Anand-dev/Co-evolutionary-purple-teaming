@@ -19,7 +19,7 @@
     "rule_id": "static_03", "round": 0, "agent_id": "blue_0",
     "title": "New process created by a service daemon", "level": "medium",
     "logsource": {"category": "process_creation"},
-    "detection": {"daemon": {"parent_process|endswith": "d"}, "condition": "daemon"},
+    "detection": {"daemon": {"parent_process": ["sshd", "apache2", "haraka", "tomcat"]}, "condition": "daemon"},
     "confidence": 0.5,
     "rationale": "A successful exploit shows up natively as a bare process record (PID only); the bridge adds the parent, so a daemon parent is the signal."
   },
@@ -37,7 +37,7 @@
     "logsource": {"category": "process_creation"},
     "detection": {
       "shell": {"process_name": ["sh", "bash", "cmd.exe", "powershell.exe"]},
-      "daemon": {"parent_process|endswith": "d"},
+      "daemon": {"parent_process": ["sshd", "apache2", "haraka", "tomcat"]},
       "condition": "shell and daemon"
     },
     "confidence": 0.6,
@@ -81,7 +81,7 @@
     "logsource": {"category": "process_creation"},
     "detection": {
       "elevated": {"privilege": "elevated"},
-      "svc_parent": {"parent_process|endswith": "d"},
+      "svc_parent": {"parent_process": ["sshd", "apache2", "haraka", "tomcat"]},
       "condition": "elevated and svc_parent"
     },
     "confidence": 0.8,
