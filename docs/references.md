@@ -5,7 +5,7 @@ from a summary.
 
 ## Papers
 1. Zhou et al., *Purple-teaming LLMs with Adversarial Defender Training* (PAD): https://arxiv.org/abs/2407.01850
-2. Hemberg et al., *Evolutionary and Coevolutionary Multi-Agent Design Choices and Dynamics*: https://arxiv.org/abs/2507.05534
+2. Hemberg, Erik, Stephen Moskal, Una-May O'Reilly, Eric Liu, and Lucille Fuller, *Evolutionary and Coevolutionary Multi-Agent Design Choices and Dynamics*, Proceedings of the Genetic and Evolutionary Computation Conference Companion (GECCO '25 Companion), 2025, pp. 559–562. https://doi.org/10.1145/3712255.3726712. Preprint: https://arxiv.org/abs/2507.05534
 3. Shaikh, Bastian, Shah, *A Red Teaming Framework for Evaluating Robustness of AI-enabled SOAR Systems*: https://arxiv.org/abs/2605.17075
 4. Castro et al., *Large Language Models are Autonomous Cyber Defenders*: https://arxiv.org/abs/2505.04843
 5. *Co-RedTeam: Orchestrated Security Discovery and Exploitation with LLM Agents*: https://arxiv.org/abs/2602.02164 (not 2503.07238)

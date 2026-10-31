@@ -30,6 +30,13 @@ An adaptive attacker plus an LLM whose output is an executable, validated, human
 - Small local models: CTI-REALM reports a gap between small and large models and a memory-augmentation trick that closes a third of it; our MoE-on-6GB-GPU result is a practical angle, and "memory" maps onto our feedback to Blue each round.
 
 ## 4. Still to do
-1. A "cited by" search on Hemberg and Du for follow-ups, and on Sigma + evolutionary / genetic methods.
+1. Complete a "cited by" search on Hemberg and Du for follow-ups, and on Sigma + evolutionary / genetic methods.
 2. Check the CAGE-4 LLM defender paper's follow-ups and any CAGE-5 work.
 3. Decide, as a team, whether Hemberg's controller co-evolution is a baseline to reproduce or only related work.
+
+### Initial follow-up search notes (28-Oct-2026)
+- Hemberg et al. (2025): no indexed citing follow-up was identified in the initial search. Recheck Google Scholar, Semantic Scholar and OpenAlex before treating this as complete.
+- Du (TSP_JCS_75976): publication identity and cited-by results still need verification against the exact paper record.
+- Castro et al. (2025), "Large Language Models are Autonomous Cyber Defenders": no clearly verified follow-up identified in the initial search.
+- CAGE-5: no authoritative CAGE-5 release or benchmark record verified in the initial search.
+- Adjacent evolutionary IDS work includes SIGMA (2019), which evolves adversarial examples for IDS retraining, and EvoSIEM (2025), which generates evasive command variants against SIEM rules. Neither should be described as direct evidence of evolutionary Sigma-rule generation without checking the full methods.
