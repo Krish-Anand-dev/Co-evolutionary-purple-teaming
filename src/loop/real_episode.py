@@ -30,7 +30,7 @@ from src.agents.red.llm_red import PlannedRed, RedMemory, RedPlanner, outcome_fr
 from src.agents.red.plan import RedPlan
 from src.agents.red.scripted import ALL as RED_STRATEGIES
 from src.agents.red.scripted import HELD_OUT
-from src.bridge import GroundTruthLabeler, TelemetryBridge
+from src.bridge import SYNTHETIC_ACTIONS, GroundTruthLabeler, TelemetryBridge
 from src.eval.metrics import EpisodeMetrics, evaluate_episode, red_success, round_metrics
 from src.loop.config import ExperimentConfig
 from src.loop.runner import EpisodeResult
@@ -51,6 +51,7 @@ class RealEpisodeSettings:
     red: str = "cage4_default"          # a key of src/agents/red/scripted.ALL, or "llm"
     blue: str = "passive"               # passive | decoy
     rules_path: str | None = None       # JSON rule set used as the detector; None = no rules (every metric then reads "no alerts")
+    synthetic: bool = True              # D2 (31-Oct): invent events for successful PrivilegeEscalate / Impact / DegradeServices
     memory_dir: str | None = None       # directory for the per-seed Red memory files (red="llm"); None = in memory only
 
 
@@ -164,7 +165,7 @@ class RealEpisodeRunner:
         env = CybORG(sg, "sim", seed=env_seed)
         env.reset()
         labeler.reset()  # drop anything recorded while the environment was being built
-        bridge = TelemetryBridge(env_seed, labeler=labeler)
+        bridge = TelemetryBridge(env_seed, labeler=labeler, synthetic=SYNTHETIC_ACTIONS if self.settings.synthetic else ())
         blue_agents = [a for a in env.agents if a.startswith("blue")]
         active_rules = sorted(r.rule_id for r in self.executor.rules)
 
@@ -179,7 +180,7 @@ class RealEpisodeRunner:
                 body = {k: v for k, v in env.get_observation(a).items() if k not in ("success", "action")}
                 if body:
                     obs[a] = body
-            events = bridge.step_events(step, obs)
+            events = bridge.step_events(step, obs, red_actions=labeler.action_log[log_pos:])
             if any(e.label_red is None for e in events):
                 raise RuntimeError(f"unlabelled event at seed {seed} step {step}: the labeler is not attached correctly")
             alerts = self.executor.run(e.visible() for e in events)

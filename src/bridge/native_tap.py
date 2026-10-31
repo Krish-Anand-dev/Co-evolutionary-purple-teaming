@@ -20,10 +20,11 @@ from __future__ import annotations
 
 import hashlib
 import logging
-from typing import Any
+from typing import Any, Iterable, Mapping
 
 from src.bridge.events import Event
 from src.bridge.labeler import GroundTruthLabeler
+from src.bridge.synthetic import synthetic_events
 
 log = logging.getLogger(__name__)
 
@@ -54,7 +55,8 @@ def split_hostname(host: str) -> tuple[str | None, str | None]:
 class TelemetryBridge:
     """One instance per episode (or call reset(seed) at the start of each). Deterministic given the seed and input."""
 
-    def __init__(self, seed: int = 0, labeler: "GroundTruthLabeler | None" = None):
+    def __init__(self, seed: int = 0, labeler: "GroundTruthLabeler | None" = None, synthetic: tuple[str, ...] = ()):
+        self.synthetic = tuple(synthetic)  # Red actions that get an invented event (D2); () = native layer only
         self.labeler = labeler  # optional ground-truth labeler (T21); it only observes, so events are unchanged without it
         self.reset(seed)
 
@@ -69,9 +71,11 @@ class TelemetryBridge:
         self.unknown_records = 0
 
     # ------------------------------------------------------------------ public
-    def step_events(self, step: int, blue_obs: dict[str, dict[str, Any]]) -> list[Event]:
+    def step_events(self, step: int, blue_obs: dict[str, dict[str, Any]],
+                    red_actions: "Iterable[Mapping[str, Any]] | None" = None) -> list[Event]:
         """blue_obs: {blue_agent: native observation dict (hostname -> host record)}. Returns events in a fixed order
-        (agents sorted, hosts sorted, records in observation order)."""
+        (agents sorted, hosts sorted, records in observation order), then the synthetic events (D2), if enabled, for the
+        labeler.action_log entries of this step passed as `red_actions`."""
         # Pass 1: learn which IP belongs to which host (any record with an Interface), so pass 2 can use it.
         for agent in blue_obs:
             for host, rec in (blue_obs[agent] or {}).items():
@@ -91,6 +95,8 @@ class TelemetryBridge:
                         if self.labeler is not None:
                             self.labeler.label_event(ev, agent, host, proc)
                         events.append(ev)
+        if self.synthetic and red_actions is not None:
+            events.extend(synthetic_events(self, step, red_actions, self.synthetic))
         return events
 
     @staticmethod

@@ -55,6 +55,7 @@ def main() -> None:
     ap.add_argument("--red", default=None, help=f"'llm' or one of {sorted(ALL)}")
     ap.add_argument("--blue", choices=("passive", "decoy"), default=None)
     ap.add_argument("--rules", default=None, help="JSON rule set used as the detector ('none' = no rules)")
+    ap.add_argument("--no-synthetic", action="store_true", help="native + enriched events only (D2 ablation); default adds synthetic events")
     ap.add_argument("--memory-dir", default=None, help="where the per-seed Red memory files go (red=llm)")
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--llama-server", metavar="URL", help="llama-server base URL for red=llm")
@@ -70,6 +71,7 @@ def main() -> None:
     settings = RealEpisodeSettings(
         red=args.red or raw.get("red", "cage4_default"), blue=args.blue or raw.get("blue", "passive"),
         rules_path=None if rules in (None, "none") else str(ROOT / rules) if not pathlib.Path(rules).is_absolute() else rules,
+        synthetic=not (args.no_synthetic or raw.get("synthetic") is False),
         memory_dir=args.memory_dir or raw.get("memory_dir"))
 
     overrides = {k: v for k, v in (("rounds", args.rounds), ("episodes_per_round", args.episodes_per_round), ("steps", args.steps)) if v}
