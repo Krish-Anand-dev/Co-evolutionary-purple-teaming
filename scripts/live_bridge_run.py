@@ -23,7 +23,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from dump_native_events import DecoyBlueAgent, EnterpriseGreenAgent, FiniteStateRedAgent, SleepAgent  # noqa: E402
-from dump_native_events import EnterpriseScenarioGenerator, first_action  # noqa: E402
+from dump_native_events import EnterpriseScenarioGenerator  # noqa: E402
 from CybORG import CybORG  # noqa: E402
 
 from src.bridge import TelemetryBridge  # noqa: E402

@@ -26,14 +26,16 @@ Interface Contract tab of the execution plan (frozen in T03).
 
 ## Conventions
 
-- Python with type hints; `ruff` + `black`; `pytest` for every module; `logging`, not `print()`.
+- Python with type hints; `ruff` + `black` (config in `pyproject.toml`, CI runs `ruff check .`); `pytest` for every module; `logging`, not `print()`.
 - Times in seconds. Seeds: tuning 0-9, test 100-109; never tune on test seeds.
 - Branches: `feat/T##-short-name`. Every PR needs one review from another author.
 - Every module must run against mock agents / mock events.
 
 ## Setup
 
-See [docs/setup.md](docs/setup.md).
+One pinned environment (Python 3.12, CPU): `docker build -t purple-team . && docker run --rm purple-team` runs the tests in a container,
+or `pip install -r requirements.txt -c constraints-py312.txt` natively. Details, what is pinned and why, and how to update the pins:
+[docs/setup.md](docs/setup.md). CI (GitHub Actions) lints and tests every push.
 
 ## Documentation
 

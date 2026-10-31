@@ -1,2 +1,3 @@
+# NOTE (T26): superseded by requirements.txt (it pins pyarrow too). Kept for the manual route in docs/setup.md (CAGE-4's own Requirements.txt).
 # Extra pin on top of CAGE-4 Requirements.txt (see docs/setup.md)
 pyarrow==17.0.0

@@ -1,3 +1,5 @@
+# NOTE (T26): superseded by requirements.txt + constraints-py312.txt, which install the Blue side (pySigma) and CAGE-4 in ONE environment.
+# Kept only so the old two-environment setup still works.
 # Extra packages for the Blue side (rules, Blue LLM agent, tests). Python 3.13 was used.
 # Separate from requirements-extra.txt, which is the CAGE-4 pin.
 pytest

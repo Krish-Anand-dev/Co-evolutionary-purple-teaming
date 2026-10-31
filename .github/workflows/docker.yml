@@ -1,0 +1,33 @@
+name: Docker
+
+# Builds the image and runs the tests inside it, but only when something that goes into the image changes.
+on:
+  push:
+    paths:
+      - Dockerfile
+      - .dockerignore
+      - requirements.txt
+      - requirements-dev.txt
+      - constraints-py312.txt
+      - .github/workflows/docker.yml
+  pull_request:
+    paths:
+      - Dockerfile
+      - .dockerignore
+      - requirements.txt
+      - requirements-dev.txt
+      - constraints-py312.txt
+      - .github/workflows/docker.yml
+
+permissions:
+  contents: read
+
+jobs:
+  image:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: docker build -t purple-team:ci .
+      - name: Run the tests inside the image
+        run: docker run --rm purple-team:ci

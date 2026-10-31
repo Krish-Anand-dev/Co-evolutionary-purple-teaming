@@ -1,0 +1,29 @@
+# One environment for everything: CAGE-4 simulator, our code, the Blue side (pySigma) and the tests.
+# Python 3.12. Install with:   pip install -r requirements.txt -c constraints-py312.txt
+#
+# CAGE-4 itself is NOT a pip package here: clone it at the pinned commit (see docs/setup.md, Dockerfile, CI) and put
+# external/cage-challenge-4 on PYTHONPATH. We deliberately do not install CAGE-4's own Requirements.txt: it pins PyYAML==6.0.1
+# (pySigma 2.0.1 needs >=6.0.3), leaves ray unpinned (its newest pyarrow needs NumPy 2) and adds torch, torch_geometric,
+# stable-baselines and a GUI stack, none of which the simulator imports (checked on the CybORG source). Only the packages
+# CybORG's core code imports are listed.
+
+# --- CAGE-4 / CybORG core (versions from CAGE-4's Requirements.txt where it pins them)
+numpy==1.26.4
+gym==0.26.2
+gymnasium==0.28.1
+pettingzoo==1.24.3
+networkx==3.2.1
+prettytable==3.9.0
+matplotlib==3.8.2
+paramiko==3.4.0
+pygame==2.5.2
+ray[rllib]==2.38.0
+pyarrow==17.0.0            # newer pyarrow needs NumPy 2 and breaks ray.rllib (see docs/setup.md)
+
+# --- Blue side
+pysigma==2.0.1
+PyYAML==6.0.3              # pySigma needs >=6.0.3; CAGE-4's own pin (6.0.1) is metadata we do not install
+
+# --- tests
+pytest==8.0.0
+pytest-mock==3.12.0

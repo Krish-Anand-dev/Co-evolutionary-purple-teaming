@@ -18,7 +18,7 @@ pytest.importorskip("ray")
 
 from src.agents.red.llm_red import PlannedRed, RedMemory, RedPlanner  # noqa: E402
 from src.agents.red.mock_llm import MockRedLLM  # noqa: E402
-from src.agents.red.plan import GOALS, SCANS, RedPlan, compile_plan, parse_plan, validate_plan  # noqa: E402
+from src.agents.red.plan import SCANS, RedPlan, compile_plan, parse_plan, validate_plan  # noqa: E402
 
 GOOD = {"goal": "balanced", "scan": "mixed", "probe_decoys": 0.4, "prioritise_servers": True,
         "impact_bias": 0.5, "degrade_share": 0.3, "rationale": "Mix it up."}
