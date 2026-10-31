@@ -1,0 +1,563 @@
+{
+  "model": "mock",
+  "rounds": 20,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "steps": 150,
+  "temperature": 0.7,
+  "llm_calls": 26,
+  "plans_requested": 26,
+  "plans_valid": 19,
+  "plans_invalid": 7,
+  "invalid_plan_rate": 0.269,
+  "first_try_valid": 14,
+  "valid_after_retry": 5,
+  "rounds_fell_back_to_scripted": 1,
+  "client_errors": 0,
+  "median_llm_seconds_per_round": 0.0,
+  "mean_tokens_out_per_round": 53.1,
+  "illegal_actions_forced_to_sleep": 0,
+  "steps_played": 14137,
+  "distinct_plans": 19,
+  "rounds_detail": [
+    {
+      "round": 1,
+      "seed": 0,
+      "source": "llm_retry",
+      "plan": {
+        "goal": "balanced",
+        "scan": "stealthy",
+        "probe_decoys": 0.58,
+        "prioritise_servers": false,
+        "impact_bias": 0.5,
+        "degrade_share": 0.28,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 73,
+        "exploit_ok": 25,
+        "privesc_ok": 26,
+        "impact_ok": 9,
+        "degrade_ok": 13,
+        "discoveries": 131,
+        "progress": 9,
+        "steps": 777,
+        "forced_sleep": 0,
+        "episode_seconds": 3.4
+      }
+    },
+    {
+      "round": 2,
+      "seed": 1,
+      "source": "fallback",
+      "plan": null,
+      "errors": [
+        "unknown field attack_everything"
+      ],
+      "outcome": {
+        "exploit_tries": 62,
+        "exploit_ok": 38,
+        "privesc_ok": 34,
+        "impact_ok": 9,
+        "degrade_ok": 45,
+        "discoveries": 88,
+        "progress": 9,
+        "steps": 682,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 3,
+      "seed": 2,
+      "source": "llm",
+      "plan": {
+        "goal": "balanced",
+        "scan": "stealthy",
+        "probe_decoys": 0.87,
+        "prioritise_servers": true,
+        "impact_bias": 0.81,
+        "degrade_share": 0.55,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 52,
+        "exploit_ok": 20,
+        "privesc_ok": 24,
+        "impact_ok": 1,
+        "degrade_ok": 25,
+        "discoveries": 76,
+        "progress": 1,
+        "steps": 582,
+        "forced_sleep": 0,
+        "episode_seconds": 3.1
+      }
+    },
+    {
+      "round": 4,
+      "seed": 3,
+      "source": "llm",
+      "plan": {
+        "goal": "balanced",
+        "scan": "mixed",
+        "probe_decoys": 0.82,
+        "prioritise_servers": false,
+        "impact_bias": 0.0,
+        "degrade_share": 0.49,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 91,
+        "exploit_ok": 32,
+        "privesc_ok": 29,
+        "impact_ok": 0,
+        "degrade_ok": 0,
+        "discoveries": 208,
+        "progress": 0,
+        "steps": 809,
+        "forced_sleep": 0,
+        "episode_seconds": 3.5
+      }
+    },
+    {
+      "round": 5,
+      "seed": 4,
+      "source": "llm_retry",
+      "plan": {
+        "goal": "fast_impact",
+        "scan": "mixed",
+        "probe_decoys": 0.45,
+        "prioritise_servers": true,
+        "impact_bias": 0.32,
+        "degrade_share": 0.51,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 86,
+        "exploit_ok": 50,
+        "privesc_ok": 35,
+        "impact_ok": 4,
+        "degrade_ok": 14,
+        "discoveries": 159,
+        "progress": 4,
+        "steps": 745,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 6,
+      "seed": 0,
+      "source": "llm_retry",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "stealthy",
+        "probe_decoys": 0.09,
+        "prioritise_servers": false,
+        "impact_bias": 0.32,
+        "degrade_share": 0.24,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 83,
+        "exploit_ok": 37,
+        "privesc_ok": 34,
+        "impact_ok": 9,
+        "degrade_ok": 7,
+        "discoveries": 153,
+        "progress": 9,
+        "steps": 757,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 7,
+      "seed": 1,
+      "source": "llm",
+      "plan": {
+        "goal": "fast_impact",
+        "scan": "aggressive",
+        "probe_decoys": 0.61,
+        "prioritise_servers": false,
+        "impact_bias": 0.48,
+        "degrade_share": 0.09,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 108,
+        "exploit_ok": 35,
+        "privesc_ok": 34,
+        "impact_ok": 5,
+        "degrade_ok": 1,
+        "discoveries": 130,
+        "progress": 5,
+        "steps": 769,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 8,
+      "seed": 2,
+      "source": "llm_retry",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "mixed",
+        "probe_decoys": 0.81,
+        "prioritise_servers": false,
+        "impact_bias": 0.9,
+        "degrade_share": 0.59,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 65,
+        "exploit_ok": 31,
+        "privesc_ok": 34,
+        "impact_ok": 6,
+        "degrade_ok": 40,
+        "discoveries": 78,
+        "progress": 6,
+        "steps": 674,
+        "forced_sleep": 0,
+        "episode_seconds": 3.0
+      }
+    },
+    {
+      "round": 9,
+      "seed": 3,
+      "source": "llm_retry",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "mixed",
+        "probe_decoys": 0.12,
+        "prioritise_servers": false,
+        "impact_bias": 0.34,
+        "degrade_share": 0.19,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 94,
+        "exploit_ok": 36,
+        "privesc_ok": 33,
+        "impact_ok": 1,
+        "degrade_ok": 3,
+        "discoveries": 116,
+        "progress": 1,
+        "steps": 660,
+        "forced_sleep": 0,
+        "episode_seconds": 3.2
+      }
+    },
+    {
+      "round": 10,
+      "seed": 4,
+      "source": "llm",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "aggressive",
+        "probe_decoys": 0.71,
+        "prioritise_servers": true,
+        "impact_bias": 0.17,
+        "degrade_share": 0.43,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 83,
+        "exploit_ok": 29,
+        "privesc_ok": 27,
+        "impact_ok": 3,
+        "degrade_ok": 2,
+        "discoveries": 134,
+        "progress": 3,
+        "steps": 622,
+        "forced_sleep": 0,
+        "episode_seconds": 3.5
+      }
+    },
+    {
+      "round": 11,
+      "seed": 0,
+      "source": "llm",
+      "plan": {
+        "goal": "fast_impact",
+        "scan": "mixed",
+        "probe_decoys": 0.22,
+        "prioritise_servers": false,
+        "impact_bias": 0.63,
+        "degrade_share": 0.94,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 99,
+        "exploit_ok": 42,
+        "privesc_ok": 41,
+        "impact_ok": 2,
+        "degrade_ok": 61,
+        "discoveries": 123,
+        "progress": 2,
+        "steps": 854,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 12,
+      "seed": 1,
+      "source": "llm",
+      "plan": {
+        "goal": "stealth_recon",
+        "scan": "aggressive",
+        "probe_decoys": 0.12,
+        "prioritise_servers": true,
+        "impact_bias": 0.83,
+        "degrade_share": 0.12,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 87,
+        "exploit_ok": 38,
+        "privesc_ok": 38,
+        "impact_ok": 4,
+        "degrade_ok": 7,
+        "discoveries": 95,
+        "progress": 4,
+        "steps": 662,
+        "forced_sleep": 0,
+        "episode_seconds": 3.6
+      }
+    },
+    {
+      "round": 13,
+      "seed": 2,
+      "source": "llm",
+      "plan": {
+        "goal": "stealth_recon",
+        "scan": "aggressive",
+        "probe_decoys": 0.61,
+        "prioritise_servers": true,
+        "impact_bias": 0.97,
+        "degrade_share": 0.72,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 42,
+        "exploit_ok": 17,
+        "privesc_ok": 23,
+        "impact_ok": 3,
+        "degrade_ok": 70,
+        "discoveries": 50,
+        "progress": 3,
+        "steps": 500,
+        "forced_sleep": 0,
+        "episode_seconds": 2.9
+      }
+    },
+    {
+      "round": 14,
+      "seed": 3,
+      "source": "llm",
+      "plan": {
+        "goal": "stealth_recon",
+        "scan": "mixed",
+        "probe_decoys": 0.02,
+        "prioritise_servers": true,
+        "impact_bias": 0.1,
+        "degrade_share": 0.26,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 91,
+        "exploit_ok": 45,
+        "privesc_ok": 37,
+        "impact_ok": 0,
+        "degrade_ok": 3,
+        "discoveries": 206,
+        "progress": 0,
+        "steps": 736,
+        "forced_sleep": 0,
+        "episode_seconds": 3.3
+      }
+    },
+    {
+      "round": 15,
+      "seed": 4,
+      "source": "llm",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "stealthy",
+        "probe_decoys": 0.44,
+        "prioritise_servers": true,
+        "impact_bias": 0.47,
+        "degrade_share": 0.6,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 73,
+        "exploit_ok": 26,
+        "privesc_ok": 28,
+        "impact_ok": 2,
+        "degrade_ok": 14,
+        "discoveries": 108,
+        "progress": 2,
+        "steps": 651,
+        "forced_sleep": 0,
+        "episode_seconds": 3.5
+      }
+    },
+    {
+      "round": 16,
+      "seed": 0,
+      "source": "llm",
+      "plan": {
+        "goal": "balanced",
+        "scan": "aggressive",
+        "probe_decoys": 0.26,
+        "prioritise_servers": false,
+        "impact_bias": 0.47,
+        "degrade_share": 0.9,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 112,
+        "exploit_ok": 53,
+        "privesc_ok": 47,
+        "impact_ok": 2,
+        "degrade_ok": 58,
+        "discoveries": 163,
+        "progress": 2,
+        "steps": 860,
+        "forced_sleep": 0,
+        "episode_seconds": 3.9
+      }
+    },
+    {
+      "round": 17,
+      "seed": 1,
+      "source": "llm",
+      "plan": {
+        "goal": "fast_impact",
+        "scan": "aggressive",
+        "probe_decoys": 0.79,
+        "prioritise_servers": true,
+        "impact_bias": 0.16,
+        "degrade_share": 0.53,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 81,
+        "exploit_ok": 39,
+        "privesc_ok": 32,
+        "impact_ok": 1,
+        "degrade_ok": 9,
+        "discoveries": 164,
+        "progress": 1,
+        "steps": 663,
+        "forced_sleep": 0,
+        "episode_seconds": 3.7
+      }
+    },
+    {
+      "round": 18,
+      "seed": 2,
+      "source": "llm",
+      "plan": {
+        "goal": "balanced",
+        "scan": "mixed",
+        "probe_decoys": 0.17,
+        "prioritise_servers": true,
+        "impact_bias": 0.41,
+        "degrade_share": 0.57,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 85,
+        "exploit_ok": 44,
+        "privesc_ok": 40,
+        "impact_ok": 6,
+        "degrade_ok": 10,
+        "discoveries": 126,
+        "progress": 6,
+        "steps": 699,
+        "forced_sleep": 0,
+        "episode_seconds": 3.2
+      }
+    },
+    {
+      "round": 19,
+      "seed": 3,
+      "source": "llm",
+      "plan": {
+        "goal": "decoy_evasion",
+        "scan": "mixed",
+        "probe_decoys": 0.36,
+        "prioritise_servers": false,
+        "impact_bias": 0.25,
+        "degrade_share": 0.56,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 80,
+        "exploit_ok": 40,
+        "privesc_ok": 35,
+        "impact_ok": 1,
+        "degrade_ok": 16,
+        "discoveries": 177,
+        "progress": 1,
+        "steps": 708,
+        "forced_sleep": 0,
+        "episode_seconds": 3.2
+      }
+    },
+    {
+      "round": 20,
+      "seed": 4,
+      "source": "llm",
+      "plan": {
+        "goal": "stealth_recon",
+        "scan": "stealthy",
+        "probe_decoys": 0.74,
+        "prioritise_servers": false,
+        "impact_bias": 0.13,
+        "degrade_share": 0.76,
+        "rationale": "Mock plan."
+      },
+      "errors": [],
+      "outcome": {
+        "exploit_tries": 81,
+        "exploit_ok": 44,
+        "privesc_ok": 36,
+        "impact_ok": 1,
+        "degrade_ok": 4,
+        "discoveries": 141,
+        "progress": 1,
+        "steps": 727,
+        "forced_sleep": 0,
+        "episode_seconds": 3.6
+      }
+    }
+  ]
+}

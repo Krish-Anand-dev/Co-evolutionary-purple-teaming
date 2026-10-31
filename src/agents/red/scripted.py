@@ -1,7 +1,7 @@
 """Scripted Red strategies built on CAGE-4's FiniteStateRedAgent (T19).
 
-CAGE-4's Red keeps a state per host (K known, S services scanned, U user shell, R root; a trailing D means a decoy was
-seen there) and picks its next action from a probability table per state. A variant only overrides two things:
+CAGE-4's Red keeps a state per host (K known, S services scanned, U user shell, R root; a trailing D means the host's
+subnet has been discovered, see CAGE-4 docs reference/agents/red_overview.md) and picks its next action from a probability table per state. A variant only overrides two things:
 the table (`state_transitions_probability`) and how hosts of each state are prioritised. Column order of every row:
 
     [DiscoverRemoteSystems, AggressiveServiceDiscovery, StealthServiceDiscovery, DiscoverDeception,
@@ -67,7 +67,8 @@ class StealthyRed(_Variant):
 
 
 class DeceptionAwareRed(_Variant):
-    """Probes for decoys before exploiting; once a decoy is seen it avoids that service (FSM already excludes its PID)."""
+    """Probes for decoys before exploiting. The base FSM also remembers decoy services it sees (host_service_decoy_status) and
+    excludes their PID from later exploits."""
 
     PRIORITISE_SERVERS = True
 

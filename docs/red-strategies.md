@@ -4,8 +4,8 @@ Code: `src/agents/red/scripted.py`. Run: `scripts/run_red_variants.py`. Tests: `
 Raw results: `results/summaries/red_variants_tuning_seeds0-4.json`.
 
 ## What they are
-CAGE-4's built-in Red (`FiniteStateRedAgent`) keeps a state per host (K known, S scanned, U user shell, R root; D = decoy
-seen) and picks its next action from a probability table per state. Each variant below only overrides that table and the
+CAGE-4's built-in Red (`FiniteStateRedAgent`) keeps a state per host (K known, S scanned, U user shell, R root; a trailing D = the host's
+subnet has been discovered) and picks its next action from a probability table per state. Each variant below only overrides that table and the
 host priority, so every action is a real CAGE-4 Red action and is legal by construction (Decision D3).
 CybORG applies one Red class to all its Red agents, so one variant = one strategy for the whole attacker team.
 
