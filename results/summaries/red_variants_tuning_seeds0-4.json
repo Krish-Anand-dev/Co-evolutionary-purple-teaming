@@ -1,0 +1,767 @@
+{
+  "steps": 500,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "runs": [
+    {
+      "variant": "cage4_default",
+      "held_out": false,
+      "seed": 0,
+      "steps": 499,
+      "seconds": 12.9,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 44,
+        "DegradeServices": 318,
+        "DiscoverDeception": 111,
+        "DiscoverRemoteSystems": 33,
+        "ExploitRemoteService": 277,
+        "Impact": 287,
+        "PrivilegeEscalate": 50,
+        "Sleep": 1830,
+        "StealthServiceDiscovery": 44
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.181,
+        "Impact": 0.052,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1164,
+      "first_successful_exploit_step": 19,
+      "blue_native_process_records": 739
+    },
+    {
+      "variant": "cage4_default",
+      "held_out": false,
+      "seed": 1,
+      "steps": 499,
+      "seconds": 13.8,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 46,
+        "DegradeServices": 349,
+        "DiscoverDeception": 90,
+        "DiscoverRemoteSystems": 45,
+        "ExploitRemoteService": 226,
+        "Impact": 331,
+        "PrivilegeEscalate": 52,
+        "Sleep": 1809,
+        "StealthServiceDiscovery": 46
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.235,
+        "Impact": 0.063,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1185,
+      "first_successful_exploit_step": 14,
+      "blue_native_process_records": 795
+    },
+    {
+      "variant": "cage4_default",
+      "held_out": false,
+      "seed": 2,
+      "steps": 499,
+      "seconds": 13.1,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 43,
+        "DegradeServices": 372,
+        "DiscoverDeception": 78,
+        "DiscoverRemoteSystems": 33,
+        "ExploitRemoteService": 221,
+        "Impact": 356,
+        "PrivilegeEscalate": 54,
+        "Sleep": 1797,
+        "StealthServiceDiscovery": 40
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.262,
+        "Impact": 0.051,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1197,
+      "first_successful_exploit_step": 14,
+      "blue_native_process_records": 799
+    },
+    {
+      "variant": "cage4_default",
+      "held_out": false,
+      "seed": 3,
+      "steps": 499,
+      "seconds": 12.5,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 37,
+        "DegradeServices": 369,
+        "DiscoverDeception": 68,
+        "DiscoverRemoteSystems": 46,
+        "ExploitRemoteService": 223,
+        "Impact": 360,
+        "PrivilegeEscalate": 51,
+        "Sleep": 1802,
+        "StealthServiceDiscovery": 38
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.233,
+        "Impact": 0.061,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1192,
+      "first_successful_exploit_step": 11,
+      "blue_native_process_records": 801
+    },
+    {
+      "variant": "cage4_default",
+      "held_out": false,
+      "seed": 4,
+      "steps": 499,
+      "seconds": 13.3,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 44,
+        "DegradeServices": 380,
+        "DiscoverDeception": 83,
+        "DiscoverRemoteSystems": 39,
+        "ExploitRemoteService": 224,
+        "Impact": 354,
+        "PrivilegeEscalate": 57,
+        "Sleep": 1772,
+        "StealthServiceDiscovery": 41
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.268,
+        "Impact": 0.051,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1222,
+      "first_successful_exploit_step": 12,
+      "blue_native_process_records": 808
+    },
+    {
+      "variant": "aggressive",
+      "held_out": false,
+      "seed": 0,
+      "steps": 499,
+      "seconds": 13.3,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 90,
+        "DegradeServices": 244,
+        "DiscoverRemoteSystems": 18,
+        "ExploitRemoteService": 323,
+        "Impact": 452,
+        "PrivilegeEscalate": 62,
+        "Sleep": 1805
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.204,
+        "Impact": 0.033,
+        "PrivilegeEscalate": 1.0
+      },
+      "red_non_sleep_actions": 1189,
+      "first_successful_exploit_step": 13,
+      "blue_native_process_records": 886
+    },
+    {
+      "variant": "aggressive",
+      "held_out": false,
+      "seed": 1,
+      "steps": 499,
+      "seconds": 13.5,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 92,
+        "DegradeServices": 230,
+        "DiscoverRemoteSystems": 21,
+        "ExploitRemoteService": 297,
+        "Impact": 433,
+        "PrivilegeEscalate": 56,
+        "Sleep": 1865
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.195,
+        "Impact": 0.048,
+        "PrivilegeEscalate": 1.0
+      },
+      "red_non_sleep_actions": 1129,
+      "first_successful_exploit_step": 9,
+      "blue_native_process_records": 881
+    },
+    {
+      "variant": "aggressive",
+      "held_out": false,
+      "seed": 2,
+      "steps": 499,
+      "seconds": 11.7,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 82,
+        "DegradeServices": 247,
+        "DiscoverRemoteSystems": 16,
+        "ExploitRemoteService": 299,
+        "Impact": 452,
+        "PrivilegeEscalate": 58,
+        "Sleep": 1840
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.201,
+        "Impact": 0.038,
+        "PrivilegeEscalate": 1.0
+      },
+      "red_non_sleep_actions": 1154,
+      "first_successful_exploit_step": 22,
+      "blue_native_process_records": 899
+    },
+    {
+      "variant": "aggressive",
+      "held_out": false,
+      "seed": 3,
+      "steps": 499,
+      "seconds": 12.5,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 81,
+        "DegradeServices": 298,
+        "DiscoverRemoteSystems": 20,
+        "ExploitRemoteService": 249,
+        "Impact": 553,
+        "PrivilegeEscalate": 61,
+        "Sleep": 1732
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.261,
+        "Impact": 0.038,
+        "PrivilegeEscalate": 1.0
+      },
+      "red_non_sleep_actions": 1262,
+      "first_successful_exploit_step": 12,
+      "blue_native_process_records": 990
+    },
+    {
+      "variant": "aggressive",
+      "held_out": false,
+      "seed": 4,
+      "steps": 499,
+      "seconds": 13.6,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 91,
+        "DegradeServices": 221,
+        "DiscoverRemoteSystems": 22,
+        "ExploitRemoteService": 344,
+        "Impact": 358,
+        "PrivilegeEscalate": 63,
+        "Sleep": 1895
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.195,
+        "Impact": 0.056,
+        "PrivilegeEscalate": 1.0
+      },
+      "red_non_sleep_actions": 1099,
+      "first_successful_exploit_step": 27,
+      "blue_native_process_records": 983
+    },
+    {
+      "variant": "stealthy",
+      "held_out": false,
+      "seed": 0,
+      "steps": 499,
+      "seconds": 13.0,
+      "red_actions": {
+        "DegradeServices": 244,
+        "DiscoverDeception": 36,
+        "DiscoverRemoteSystems": 53,
+        "ExploitRemoteService": 345,
+        "Impact": 283,
+        "PrivilegeEscalate": 55,
+        "Sleep": 1889,
+        "StealthServiceDiscovery": 89
+      },
+      "red_success_rate": {
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.165,
+        "Impact": 0.06,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1105,
+      "first_successful_exploit_step": 12,
+      "blue_native_process_records": 763
+    },
+    {
+      "variant": "stealthy",
+      "held_out": false,
+      "seed": 1,
+      "steps": 499,
+      "seconds": 14.2,
+      "red_actions": {
+        "DegradeServices": 328,
+        "DiscoverDeception": 32,
+        "DiscoverRemoteSystems": 63,
+        "ExploitRemoteService": 266,
+        "Impact": 306,
+        "PrivilegeEscalate": 70,
+        "Sleep": 1836,
+        "StealthServiceDiscovery": 93
+      },
+      "red_success_rate": {
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.274,
+        "Impact": 0.069,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1158,
+      "first_successful_exploit_step": 16,
+      "blue_native_process_records": 931
+    },
+    {
+      "variant": "stealthy",
+      "held_out": false,
+      "seed": 2,
+      "steps": 499,
+      "seconds": 11.9,
+      "red_actions": {
+        "DegradeServices": 360,
+        "DiscoverDeception": 21,
+        "DiscoverRemoteSystems": 57,
+        "ExploitRemoteService": 203,
+        "Impact": 363,
+        "PrivilegeEscalate": 56,
+        "Sleep": 1850,
+        "StealthServiceDiscovery": 84
+      },
+      "red_success_rate": {
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.296,
+        "Impact": 0.05,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1144,
+      "first_successful_exploit_step": 16,
+      "blue_native_process_records": 767
+    },
+    {
+      "variant": "stealthy",
+      "held_out": false,
+      "seed": 3,
+      "steps": 499,
+      "seconds": 11.8,
+      "red_actions": {
+        "DegradeServices": 272,
+        "DiscoverDeception": 38,
+        "DiscoverRemoteSystems": 48,
+        "ExploitRemoteService": 317,
+        "Impact": 264,
+        "PrivilegeEscalate": 62,
+        "Sleep": 1912,
+        "StealthServiceDiscovery": 81
+      },
+      "red_success_rate": {
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.208,
+        "Impact": 0.072,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1082,
+      "first_successful_exploit_step": 18,
+      "blue_native_process_records": 899
+    },
+    {
+      "variant": "stealthy",
+      "held_out": false,
+      "seed": 4,
+      "steps": 499,
+      "seconds": 13.2,
+      "red_actions": {
+        "DegradeServices": 354,
+        "DiscoverDeception": 27,
+        "DiscoverRemoteSystems": 44,
+        "ExploitRemoteService": 273,
+        "Impact": 330,
+        "PrivilegeEscalate": 59,
+        "Sleep": 1817,
+        "StealthServiceDiscovery": 90
+      },
+      "red_success_rate": {
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.234,
+        "Impact": 0.061,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1177,
+      "first_successful_exploit_step": 23,
+      "blue_native_process_records": 819
+    },
+    {
+      "variant": "deception_aware",
+      "held_out": false,
+      "seed": 0,
+      "steps": 499,
+      "seconds": 12.9,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 17,
+        "DegradeServices": 316,
+        "DiscoverDeception": 165,
+        "DiscoverRemoteSystems": 36,
+        "ExploitRemoteService": 246,
+        "Impact": 285,
+        "PrivilegeEscalate": 58,
+        "Sleep": 1799,
+        "StealthServiceDiscovery": 72
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.244,
+        "Impact": 0.056,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1195,
+      "first_successful_exploit_step": 14,
+      "blue_native_process_records": 770
+    },
+    {
+      "variant": "deception_aware",
+      "held_out": false,
+      "seed": 1,
+      "steps": 499,
+      "seconds": 13.2,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 18,
+        "DegradeServices": 274,
+        "DiscoverDeception": 181,
+        "DiscoverRemoteSystems": 42,
+        "ExploitRemoteService": 250,
+        "Impact": 281,
+        "PrivilegeEscalate": 51,
+        "Sleep": 1822,
+        "StealthServiceDiscovery": 75
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.212,
+        "Impact": 0.046,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1172,
+      "first_successful_exploit_step": 14,
+      "blue_native_process_records": 723
+    },
+    {
+      "variant": "deception_aware",
+      "held_out": false,
+      "seed": 2,
+      "steps": 499,
+      "seconds": 11.4,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 14,
+        "DegradeServices": 282,
+        "DiscoverDeception": 128,
+        "DiscoverRemoteSystems": 44,
+        "ExploitRemoteService": 240,
+        "Impact": 307,
+        "PrivilegeEscalate": 58,
+        "Sleep": 1852,
+        "StealthServiceDiscovery": 69
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.25,
+        "Impact": 0.059,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1142,
+      "first_successful_exploit_step": 27,
+      "blue_native_process_records": 782
+    },
+    {
+      "variant": "deception_aware",
+      "held_out": false,
+      "seed": 3,
+      "steps": 499,
+      "seconds": 11.5,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 15,
+        "DegradeServices": 264,
+        "DiscoverDeception": 158,
+        "DiscoverRemoteSystems": 37,
+        "ExploitRemoteService": 237,
+        "Impact": 315,
+        "PrivilegeEscalate": 52,
+        "Sleep": 1850,
+        "StealthServiceDiscovery": 66
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.232,
+        "Impact": 0.051,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1144,
+      "first_successful_exploit_step": 12,
+      "blue_native_process_records": 747
+    },
+    {
+      "variant": "deception_aware",
+      "held_out": false,
+      "seed": 4,
+      "steps": 499,
+      "seconds": 13.7,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 20,
+        "DegradeServices": 326,
+        "DiscoverDeception": 108,
+        "DiscoverRemoteSystems": 36,
+        "ExploitRemoteService": 250,
+        "Impact": 296,
+        "PrivilegeEscalate": 59,
+        "Sleep": 1829,
+        "StealthServiceDiscovery": 70
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.244,
+        "Impact": 0.064,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 1.0
+      },
+      "red_non_sleep_actions": 1165,
+      "first_successful_exploit_step": 15,
+      "blue_native_process_records": 785
+    },
+    {
+      "variant": "hit_and_run",
+      "held_out": true,
+      "seed": 0,
+      "steps": 499,
+      "seconds": 12.5,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 49,
+        "DegradeServices": 22,
+        "DiscoverDeception": 47,
+        "DiscoverRemoteSystems": 23,
+        "ExploitRemoteService": 481,
+        "Impact": 147,
+        "PrivilegeEscalate": 72,
+        "Sleep": 2025,
+        "StealthServiceDiscovery": 52,
+        "Withdraw": 76
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.266,
+        "Impact": 0.163,
+        "PrivilegeEscalate": 0.972,
+        "StealthServiceDiscovery": 1.0,
+        "Withdraw": 0.882
+      },
+      "red_non_sleep_actions": 969,
+      "first_successful_exploit_step": 13,
+      "blue_native_process_records": 1064
+    },
+    {
+      "variant": "hit_and_run",
+      "held_out": true,
+      "seed": 1,
+      "steps": 499,
+      "seconds": 12.8,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 47,
+        "DegradeServices": 29,
+        "DiscoverDeception": 52,
+        "DiscoverRemoteSystems": 30,
+        "ExploitRemoteService": 451,
+        "Impact": 148,
+        "PrivilegeEscalate": 90,
+        "Sleep": 1998,
+        "StealthServiceDiscovery": 61,
+        "Withdraw": 88
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 0.915,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.308,
+        "Impact": 0.149,
+        "PrivilegeEscalate": 0.9,
+        "StealthServiceDiscovery": 0.951,
+        "Withdraw": 0.92
+      },
+      "red_non_sleep_actions": 996,
+      "first_successful_exploit_step": 14,
+      "blue_native_process_records": 1032
+    },
+    {
+      "variant": "hit_and_run",
+      "held_out": true,
+      "seed": 2,
+      "steps": 499,
+      "seconds": 10.2,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 44,
+        "DegradeServices": 25,
+        "DiscoverDeception": 71,
+        "DiscoverRemoteSystems": 28,
+        "ExploitRemoteService": 502,
+        "Impact": 118,
+        "PrivilegeEscalate": 44,
+        "Sleep": 2038,
+        "StealthServiceDiscovery": 63,
+        "Withdraw": 61
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 0.886,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.261,
+        "Impact": 0.229,
+        "PrivilegeEscalate": 1.0,
+        "StealthServiceDiscovery": 0.794,
+        "Withdraw": 0.803
+      },
+      "red_non_sleep_actions": 956,
+      "first_successful_exploit_step": 31,
+      "blue_native_process_records": 838
+    },
+    {
+      "variant": "hit_and_run",
+      "held_out": true,
+      "seed": 3,
+      "steps": 499,
+      "seconds": 10.7,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 59,
+        "DegradeServices": 26,
+        "DiscoverDeception": 55,
+        "DiscoverRemoteSystems": 22,
+        "ExploitRemoteService": 454,
+        "Impact": 135,
+        "PrivilegeEscalate": 86,
+        "Sleep": 2045,
+        "StealthServiceDiscovery": 39,
+        "Withdraw": 73
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 1.0,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.324,
+        "Impact": 0.237,
+        "PrivilegeEscalate": 0.953,
+        "StealthServiceDiscovery": 1.0,
+        "Withdraw": 0.877
+      },
+      "red_non_sleep_actions": 949,
+      "first_successful_exploit_step": 12,
+      "blue_native_process_records": 744
+    },
+    {
+      "variant": "hit_and_run",
+      "held_out": true,
+      "seed": 4,
+      "steps": 499,
+      "seconds": 12.2,
+      "red_actions": {
+        "AggressiveServiceDiscovery": 69,
+        "DegradeServices": 26,
+        "DiscoverDeception": 69,
+        "DiscoverRemoteSystems": 32,
+        "ExploitRemoteService": 476,
+        "Impact": 129,
+        "PrivilegeEscalate": 74,
+        "Sleep": 1990,
+        "StealthServiceDiscovery": 60,
+        "Withdraw": 69
+      },
+      "red_success_rate": {
+        "AggressiveServiceDiscovery": 0.899,
+        "DegradeServices": 1.0,
+        "DiscoverDeception": 1.0,
+        "DiscoverRemoteSystems": 1.0,
+        "ExploitRemoteService": 0.267,
+        "Impact": 0.178,
+        "PrivilegeEscalate": 0.892,
+        "StealthServiceDiscovery": 0.833,
+        "Withdraw": 0.884
+      },
+      "red_non_sleep_actions": 1004,
+      "first_successful_exploit_step": 9,
+      "blue_native_process_records": 900
+    }
+  ]
+}
