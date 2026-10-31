@@ -5,8 +5,9 @@ import importlib.util
 import pathlib
 import sys
 
-import numpy as np
 import pytest
+
+np = pytest.importorskip("numpy")  # the Blue-side venv has no numpy; skip the module there instead of failing at collection
 
 from src.agents.baselines.random_blue import RandomBlue
 from src.agents.red.legality import is_legal, legal_commands
