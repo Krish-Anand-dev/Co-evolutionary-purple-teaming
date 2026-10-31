@@ -227,6 +227,10 @@ Required fields:
 
 
 
+Optional field:
+
+- `tn`: Integer or `null`. Represents the number of benign events that were not alerted (true negatives). If true-negative counts are unavailable, `tn` may be `null` or omitted. When `tn` is unavailable, FPR must be reported as `null`.
+
 Allowed phases: `red`, `blue`, `eval`.
 
 
