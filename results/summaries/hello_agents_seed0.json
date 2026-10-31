@@ -1,0 +1,40 @@
+{
+  "seed": 0,
+  "steps_requested": 500,
+  "steps_run": 499,
+  "steps_expected_by_cyborg": 499,
+  "env_signalled_done": true,
+  "full_episode": true,
+  "total_reward_mean_over_agents": -3812,
+  "seconds": 13.4,
+  "red": {
+    "agents_that_acted": 6,
+    "agent_instances_created": 12,
+    "actions_by_type": {
+      "AggressiveServiceDiscovery": 219,
+      "DegradeServices": 234,
+      "DiscoverDeception": 206,
+      "DiscoverRemoteSystems": 210,
+      "ExploitRemoteService": 211,
+      "Impact": 236,
+      "PrivilegeEscalate": 255,
+      "Sleep": 226,
+      "StealthServiceDiscovery": 203,
+      "Withdraw": 225
+    },
+    "illegal_rejected_by_agent": 0,
+    "invalid_action_recorded_by_env": 0
+  },
+  "blue": {
+    "agents": [
+      "blue_agent_0",
+      "blue_agent_1",
+      "blue_agent_2",
+      "blue_agent_3",
+      "blue_agent_4"
+    ],
+    "distinct_action_indices_used": 200,
+    "chosen_outside_action_mask": 0,
+    "fallbacks_when_mask_empty": 0
+  }
+}
