@@ -12,6 +12,17 @@
 
 **Paper:** https://arxiv.org/abs/2507.05534
 
+## Author Contact
+
+An email was sent to Dr. Erik Hemberg on 1 November 2026
+requesting information about the public availability of the
+paper-specific Red/Blue controllers and evolutionary baselines.
+
+**Status:** Awaiting response.
+
+The reimplementation plan remains the fallback if the source code
+is unavailable or no response is received in time.
+
 ## Objective
 
 Verify whether the baseline implementations described in the reference paper
@@ -37,6 +48,26 @@ including CybORG and CAGE Challenge 4. However, the paper-specific
 evolutionary and co-evolutionary implementation was not located in the
 public repositories and author-linked resources checked for this task.
 
+### CAGE-4 Blue-Agent Baseline Assessment
+
+The CAGE-4 repository provides infrastructure for implementing and
+integrating custom Blue agents, including:
+
+- `BlueFixedActionWrapper` for mapping Blue actions to fixed action indices.
+- `BlueEnterpriseWrapper` for exposing observations to Blue agents.
+- An example submission demonstrating the expected Blue-agent interface.
+- Available actions such as Monitor, Analyse, DeployDecoy, Remove,
+  Restore and BlockTraffic.
+
+These resources provide a foundation for implementing and evaluating
+custom Blue agents. However, the repository resources checked did not
+identify a directly reusable specialist Blue-agent baseline matching
+the requirements of this project.
+
+Therefore, CAGE-4 will be treated as the environment and integration
+framework rather than as a source of ready-made specialist Blue
+baselines.
+
 ## Availability Assessment
 
 | Component | Availability |
@@ -48,6 +79,8 @@ public repositories and author-linked resources checked for this task.
 | GE controller implementation | No public implementation located |
 | LLM-supported GE mutation | No public implementation located |
 | Controller grammar details | Described in the paper |
+| CAGE-4 Blue-agent integration framework | Publicly available |
+| Ready-made specialist Blue-agent baseline | Not identified in the resources checked |
 
 ## Conclusion
 
@@ -62,6 +95,11 @@ repositories as dependencies.
 
 This is a finding from the resources checked, not proof that no
 private or unindexed implementation exists.
+
+The CAGE-4 assessment supports using its wrappers, action definitions
+and example submission as implementation references. It does not
+remove the need to develop our own project-specific Blue-agent
+baselines.
 
 ## References
 
