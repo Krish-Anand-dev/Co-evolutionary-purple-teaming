@@ -11,8 +11,8 @@ Checked on attack.mitre.org (page fetched and read via a summarising tool, so ID
 | ExploitRemoteService | T1210 Exploitation of Remote Services | T1210 Exploitation of Remote Services, tactic **Lateral Movement** (TA0008) | matches; note its tactic is Lateral Movement, not Initial Access |
 | PrivilegeEscalate | TA0004 (a tactic, not a technique) | TA0004 Privilege Escalation | matches; it is a tactic ID, so say "tactic TA0004" in the table (or pick a technique if you want one) |
 | Impact | T1489 Service Stop | T1489 Service Stop, tactic Impact (TA0040) | matches |
-| DegradeServices | none given | not mapped | open: T1499 Endpoint Denial of Service (Impact, TA0040) is a plausible candidate; NOT verified as the right fit, Krish to judge |
-| DiscoverDeception, Withdraw | none given | not mapped | open: no obvious technique; I did not search further |
+| DegradeServices | none given | not mapped | settled 31-Oct: T1489 Service Stop for the mechanics; T1499 Endpoint Denial of Service (Impact, TA0040, verified) for the intent |
+| DiscoverDeception, Withdraw | none given | not mapped | settled 31-Oct: no direct technique. T1497 (Virtualization/Sandbox Evasion, Stealth + Discovery) is VM/sandbox checks only; T1070 (Indicator Removal, Stealth) is a partial fit for Withdraw at best |
 
 ## The draft paper's old Table 2 (what must go)
 - T1595 Active Scanning: real, tactic Reconnaissance (TA0043); but CAGE-4 has no such action, its scanning actions map to Discovery (T1018, T1046).
