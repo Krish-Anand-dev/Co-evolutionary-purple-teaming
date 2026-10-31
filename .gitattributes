@@ -1,0 +1,7 @@
+# Files that run on Linux (Docker, CI, shell) must keep LF line endings even when checked out on Windows.
+*.sh text eol=lf
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+*.yml text eol=lf
+requirements*.txt text eol=lf
+constraints-*.txt text eol=lf

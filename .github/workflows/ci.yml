@@ -1,0 +1,58 @@
+name: CI
+
+# Every push and every pull request: lint, then the whole test suite in the pinned environment.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Keep in sync with the Dockerfile (ARG CAGE4_COMMIT) and docs/setup.md.
+  CAGE4_COMMIT: 8c3c50ca54b176c2de199847944e8dcc035497e3
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: "ruff (blocking, correctness rules, see pyproject.toml)"
+        run: ruff check .
+      - name: "black (informational for now)"
+        # 54 of 65 existing files are not black-formatted yet. Reformatting them all at once would collide with every open
+        # branch, so this step reports but does not fail. Flip continue-on-error off after one agreed "black ." pull request.
+        continue-on-error: true
+        run: black --check -q .
+
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            constraints-py312.txt
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt -c constraints-py312.txt
+      - name: Fetch CAGE-4 at the pinned commit
+        run: |
+          git clone --quiet https://github.com/cage-challenge/cage-challenge-4.git external/cage-challenge-4
+          git -C external/cage-challenge-4 checkout --quiet "$CAGE4_COMMIT"
+      - name: Tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/external/cage-challenge-4
+        run: python -m pytest -q
