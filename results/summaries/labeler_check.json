@@ -1,0 +1,551 @@
+{
+  "totals": {
+    "events": 35817,
+    "labelled": 35817,
+    "unlabelled": 0,
+    "red_events": 8488,
+    "benign_events": 27329,
+    "unclaimed_ledger_entries": 0,
+    "red_events_without_matching_action": 0,
+    "target_side_checked": 8009,
+    "target_side_destination_matches_action_target": 8009,
+    "n_problems": 0
+  },
+  "by_source": {
+    "benign:GreenAccessService": 26074,
+    "benign:GreenLocalWork": 1255,
+    "red:AggressiveServiceDiscovery": 1974,
+    "red:ExploitRemoteService": 5829,
+    "red:StealthServiceDiscovery": 685
+  },
+  "runs": [
+    {
+      "blue": "passive",
+      "red": "fsm",
+      "seed": 0,
+      "steps": 499,
+      "events": 739,
+      "labelled": 739,
+      "unlabelled": 0,
+      "red_events": 621,
+      "benign_events": 118,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 739,
+        "events_labelled": 739,
+        "labelled_benign": 118,
+        "labelled_red": 621
+      },
+      "by_source": {
+        "benign:GreenAccessService": 68,
+        "benign:GreenLocalWork": 50,
+        "red:AggressiveServiceDiscovery": 76,
+        "red:ExploitRemoteService": 519,
+        "red:StealthServiceDiscovery": 26
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 581,
+      "target_side_destination_matches_action_target": 581,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "passive",
+      "red": "fsm",
+      "seed": 1,
+      "steps": 499,
+      "events": 795,
+      "labelled": 795,
+      "unlabelled": 0,
+      "red_events": 644,
+      "benign_events": 151,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 795,
+        "events_labelled": 795,
+        "labelled_benign": 151,
+        "labelled_red": 644
+      },
+      "by_source": {
+        "benign:GreenAccessService": 83,
+        "benign:GreenLocalWork": 68,
+        "red:AggressiveServiceDiscovery": 98,
+        "red:ExploitRemoteService": 518,
+        "red:StealthServiceDiscovery": 28
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 599,
+      "target_side_destination_matches_action_target": 599,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "passive",
+      "red": "fsm",
+      "seed": 2,
+      "steps": 499,
+      "events": 799,
+      "labelled": 799,
+      "unlabelled": 0,
+      "red_events": 699,
+      "benign_events": 100,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 799,
+        "events_labelled": 799,
+        "labelled_benign": 100,
+        "labelled_red": 699
+      },
+      "by_source": {
+        "benign:GreenAccessService": 52,
+        "benign:GreenLocalWork": 48,
+        "red:AggressiveServiceDiscovery": 75,
+        "red:ExploitRemoteService": 605,
+        "red:StealthServiceDiscovery": 19
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 652,
+      "target_side_destination_matches_action_target": 652,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "passive",
+      "red": "random",
+      "seed": 0,
+      "steps": 499,
+      "events": 685,
+      "labelled": 685,
+      "unlabelled": 0,
+      "red_events": 539,
+      "benign_events": 146,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 685,
+        "events_labelled": 685,
+        "labelled_benign": 146,
+        "labelled_red": 539
+      },
+      "by_source": {
+        "benign:GreenAccessService": 66,
+        "benign:GreenLocalWork": 80,
+        "red:AggressiveServiceDiscovery": 216,
+        "red:ExploitRemoteService": 241,
+        "red:StealthServiceDiscovery": 82
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 518,
+      "target_side_destination_matches_action_target": 518,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "passive",
+      "red": "random",
+      "seed": 1,
+      "steps": 499,
+      "events": 525,
+      "labelled": 525,
+      "unlabelled": 0,
+      "red_events": 368,
+      "benign_events": 157,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 525,
+        "events_labelled": 525,
+        "labelled_benign": 157,
+        "labelled_red": 368
+      },
+      "by_source": {
+        "benign:GreenAccessService": 67,
+        "benign:GreenLocalWork": 90,
+        "red:AggressiveServiceDiscovery": 175,
+        "red:ExploitRemoteService": 166,
+        "red:StealthServiceDiscovery": 27
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 355,
+      "target_side_destination_matches_action_target": 355,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "passive",
+      "red": "random",
+      "seed": 2,
+      "steps": 499,
+      "events": 124,
+      "labelled": 124,
+      "unlabelled": 0,
+      "red_events": 0,
+      "benign_events": 124,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 124,
+        "events_labelled": 124,
+        "labelled_benign": 124
+      },
+      "by_source": {
+        "benign:GreenAccessService": 59,
+        "benign:GreenLocalWork": 65
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 0,
+      "target_side_destination_matches_action_target": 0,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "fsm",
+      "seed": 0,
+      "steps": 499,
+      "events": 708,
+      "labelled": 708,
+      "unlabelled": 0,
+      "red_events": 585,
+      "benign_events": 123,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 708,
+        "events_labelled": 708,
+        "labelled_benign": 123,
+        "labelled_red": 585
+      },
+      "by_source": {
+        "benign:GreenAccessService": 67,
+        "benign:GreenLocalWork": 56,
+        "red:AggressiveServiceDiscovery": 79,
+        "red:ExploitRemoteService": 458,
+        "red:StealthServiceDiscovery": 48
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 547,
+      "target_side_destination_matches_action_target": 547,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "fsm",
+      "seed": 1,
+      "steps": 499,
+      "events": 864,
+      "labelled": 864,
+      "unlabelled": 0,
+      "red_events": 701,
+      "benign_events": 163,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 864,
+        "events_labelled": 864,
+        "labelled_benign": 163,
+        "labelled_red": 701
+      },
+      "by_source": {
+        "benign:GreenAccessService": 85,
+        "benign:GreenLocalWork": 78,
+        "red:AggressiveServiceDiscovery": 111,
+        "red:ExploitRemoteService": 547,
+        "red:StealthServiceDiscovery": 43
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 653,
+      "target_side_destination_matches_action_target": 653,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "fsm",
+      "seed": 2,
+      "steps": 499,
+      "events": 860,
+      "labelled": 860,
+      "unlabelled": 0,
+      "red_events": 737,
+      "benign_events": 123,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 860,
+        "events_labelled": 860,
+        "labelled_benign": 123,
+        "labelled_red": 737
+      },
+      "by_source": {
+        "benign:GreenAccessService": 64,
+        "benign:GreenLocalWork": 59,
+        "red:AggressiveServiceDiscovery": 96,
+        "red:ExploitRemoteService": 603,
+        "red:StealthServiceDiscovery": 38
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 688,
+      "target_side_destination_matches_action_target": 688,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "random",
+      "seed": 0,
+      "steps": 499,
+      "events": 686,
+      "labelled": 686,
+      "unlabelled": 0,
+      "red_events": 546,
+      "benign_events": 140,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 686,
+        "events_labelled": 686,
+        "labelled_benign": 140,
+        "labelled_red": 546
+      },
+      "by_source": {
+        "benign:GreenAccessService": 70,
+        "benign:GreenLocalWork": 70,
+        "red:AggressiveServiceDiscovery": 272,
+        "red:ExploitRemoteService": 190,
+        "red:StealthServiceDiscovery": 84
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 530,
+      "target_side_destination_matches_action_target": 530,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "random",
+      "seed": 1,
+      "steps": 499,
+      "events": 643,
+      "labelled": 643,
+      "unlabelled": 0,
+      "red_events": 490,
+      "benign_events": 153,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 643,
+        "events_labelled": 643,
+        "labelled_benign": 153,
+        "labelled_red": 490
+      },
+      "by_source": {
+        "benign:GreenAccessService": 74,
+        "benign:GreenLocalWork": 79,
+        "red:AggressiveServiceDiscovery": 213,
+        "red:ExploitRemoteService": 148,
+        "red:StealthServiceDiscovery": 129
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 478,
+      "target_side_destination_matches_action_target": 478,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "decoy",
+      "red": "random",
+      "seed": 2,
+      "steps": 499,
+      "events": 118,
+      "labelled": 118,
+      "unlabelled": 0,
+      "red_events": 0,
+      "benign_events": 118,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 118,
+        "events_labelled": 118,
+        "labelled_benign": 118
+      },
+      "by_source": {
+        "benign:GreenAccessService": 50,
+        "benign:GreenLocalWork": 68
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 0,
+      "target_side_destination_matches_action_target": 0,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "fsm",
+      "seed": 0,
+      "steps": 499,
+      "events": 5229,
+      "labelled": 5229,
+      "unlabelled": 0,
+      "red_events": 530,
+      "benign_events": 4699,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 5229,
+        "events_labelled": 5229,
+        "labelled_benign": 4699,
+        "labelled_red": 530
+      },
+      "by_source": {
+        "benign:GreenAccessService": 4641,
+        "benign:GreenLocalWork": 58,
+        "red:AggressiveServiceDiscovery": 85,
+        "red:ExploitRemoteService": 436,
+        "red:StealthServiceDiscovery": 9
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 492,
+      "target_side_destination_matches_action_target": 492,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "fsm",
+      "seed": 1,
+      "steps": 499,
+      "events": 5353,
+      "labelled": 5353,
+      "unlabelled": 0,
+      "red_events": 721,
+      "benign_events": 4632,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 5353,
+        "events_labelled": 5353,
+        "labelled_benign": 4632,
+        "labelled_red": 721
+      },
+      "by_source": {
+        "benign:GreenAccessService": 4555,
+        "benign:GreenLocalWork": 77,
+        "red:AggressiveServiceDiscovery": 99,
+        "red:ExploitRemoteService": 604,
+        "red:StealthServiceDiscovery": 18
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 675,
+      "target_side_destination_matches_action_target": 675,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "fsm",
+      "seed": 2,
+      "steps": 499,
+      "events": 4135,
+      "labelled": 4135,
+      "unlabelled": 0,
+      "red_events": 607,
+      "benign_events": 3528,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 4135,
+        "events_labelled": 4135,
+        "labelled_benign": 3528,
+        "labelled_red": 607
+      },
+      "by_source": {
+        "benign:GreenAccessService": 3468,
+        "benign:GreenLocalWork": 60,
+        "red:AggressiveServiceDiscovery": 61,
+        "red:ExploitRemoteService": 518,
+        "red:StealthServiceDiscovery": 28
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 567,
+      "target_side_destination_matches_action_target": 567,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "random",
+      "seed": 0,
+      "steps": 499,
+      "events": 5082,
+      "labelled": 5082,
+      "unlabelled": 0,
+      "red_events": 366,
+      "benign_events": 4716,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 5082,
+        "events_labelled": 5082,
+        "labelled_benign": 4716,
+        "labelled_red": 366
+      },
+      "by_source": {
+        "benign:GreenAccessService": 4635,
+        "benign:GreenLocalWork": 81,
+        "red:AggressiveServiceDiscovery": 176,
+        "red:ExploitRemoteService": 167,
+        "red:StealthServiceDiscovery": 23
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 351,
+      "target_side_destination_matches_action_target": 351,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "random",
+      "seed": 1,
+      "steps": 499,
+      "events": 5030,
+      "labelled": 5030,
+      "unlabelled": 0,
+      "red_events": 334,
+      "benign_events": 4696,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 5030,
+        "events_labelled": 5030,
+        "labelled_benign": 4696,
+        "labelled_red": 334
+      },
+      "by_source": {
+        "benign:GreenAccessService": 4606,
+        "benign:GreenLocalWork": 90,
+        "red:AggressiveServiceDiscovery": 142,
+        "red:ExploitRemoteService": 109,
+        "red:StealthServiceDiscovery": 83
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 323,
+      "target_side_destination_matches_action_target": 323,
+      "problems": [],
+      "n_problems": 0
+    },
+    {
+      "blue": "blocker",
+      "red": "random",
+      "seed": 2,
+      "steps": 499,
+      "events": 3442,
+      "labelled": 3442,
+      "unlabelled": 0,
+      "red_events": 0,
+      "benign_events": 3442,
+      "unclaimed_ledger_entries": 0,
+      "labeler_stats": {
+        "events_consumed": 3442,
+        "events_labelled": 3442,
+        "labelled_benign": 3442
+      },
+      "by_source": {
+        "benign:GreenAccessService": 3364,
+        "benign:GreenLocalWork": 78
+      },
+      "red_events_without_matching_action": 0,
+      "target_side_checked": 0,
+      "target_side_destination_matches_action_target": 0,
+      "problems": [],
+      "n_problems": 0
+    }
+  ]
+}
