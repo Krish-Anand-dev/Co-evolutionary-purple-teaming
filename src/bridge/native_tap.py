@@ -23,6 +23,7 @@ import logging
 from typing import Any
 
 from src.bridge.events import Event
+from src.bridge.labeler import GroundTruthLabeler
 
 log = logging.getLogger(__name__)
 
@@ -53,7 +54,8 @@ def split_hostname(host: str) -> tuple[str | None, str | None]:
 class TelemetryBridge:
     """One instance per episode (or call reset(seed) at the start of each). Deterministic given the seed and input."""
 
-    def __init__(self, seed: int = 0):
+    def __init__(self, seed: int = 0, labeler: "GroundTruthLabeler | None" = None):
+        self.labeler = labeler  # optional ground-truth labeler (T21); it only observes, so events are unchanged without it
         self.reset(seed)
 
     def reset(self, seed: int | None = None) -> None:
@@ -86,6 +88,8 @@ class TelemetryBridge:
                 for proc in obs[host].get("Processes", []):
                     ev = self._convert(step, agent, host, proc)
                     if ev is not None:
+                        if self.labeler is not None:
+                            self.labeler.label_event(ev, agent, host, proc)
                         events.append(ev)
         return events
 
