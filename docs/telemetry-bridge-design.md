@@ -65,6 +65,14 @@ No native source. Keep it, but only as synthetic events from Impact / DegradeSer
 - Enriched fields are invented by a seeded hash (sha256, not Python's hash): `protocol` = tcp, `service_name` from a short well-known-port table (unknown ports get none), and for PID-only / Green-alert records `process_name`, `parent_process`, `privilege`. They are listed per event in `enriched_fields`; the paper should report how much of the stream this covers.
 - Seeded benign background noise (`noise_level`) is not implemented yet.
 
+## 9b. Synthetic layer (T16, part 2; 31-Oct-2026; Decision D2 = synthetic events from day one, unanimous)
+`src/bridge/synthetic.py`, switched on by `TelemetryBridge(seed, labeler, synthetic=SYNTHETIC_ACTIONS)` and `step_events(step, obs, red_actions=labeler.action_log[this step])`. In the episode runner it is ON by default (`RealEpisodeSettings.synthetic`, CLI `--no-synthetic` for the native-only ablation).
+- PrivilegeEscalate -> `process_creation`, privilege=elevated, shell (sh/bash) whose parent is a daemon (sshd/apache2/haraka/tomcat); Impact -> `service_event`, service_name `service_stopped`; DegradeServices -> `service_event`, `service_degraded`. These are the names static_04, static_09 and static_10 already used.
+- Only SUCCESSFUL actions produce an event. The event goes to the one Blue agent defending the host's zone (agents 0-3 one zone each, agent 4 the public, admin and office networks); the contractor network has no defender, so no event. DiscoverRemoteSystems, DiscoverDeception and Withdraw stay invisible on purpose.
+- `provenance="synthetic"`, `label_red=1` and `source_action` / `source_agent` come from the labeler's action log, so they are Red-caused by construction. Deterministic given the seed.
+- Check on 5 real episodes (FSM Red, passive Blue, static rules, tuning seeds 0-4, 500 steps): 5,637 events instead of 3,942, so 1,695 (30%) are synthetic. All 1,695 are caught by the static rules (TP 3,101 -> 4,796, FN and FP unchanged), so recall reads 0.949 -> 0.966.
+- CAUTION for the paper: the synthetic events carry their signal in an explicit field (`privilege=elevated`, `service_name=service_stopped`), so they are easy to detect by construction. Report every metric split by provenance (native vs synthetic) and never pool them into one headline recall. Splitting the metrics by provenance is not built yet (src/eval).
+
 ## 10a. Gate G3 (design half)
 Every in-scope Red action maps to events OR is explicitly "no observable event" with justification: done in sections 3-4 and 9. Still to do for the build half: a scripted-Red episode with hand-checked precision/recall.
 
