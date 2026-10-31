@@ -1,0 +1,36 @@
+# T28: real CAGE-4 episodes through the T22 runner (scripts/run_red_experiment.py).
+# Same keys as configs/mock_experiment.yaml, plus an optional `real_episode:` block read by the T28 script only.
+# Condition here: the 10 hand-written static rules acting as the detector against CAGE-4's default Red, Blue passive.
+
+condition: static_rules_vs_cage4_red
+seed: 42
+
+rounds: 1
+episodes_per_round: 1
+steps: 500
+
+llm_model: none        # Red is scripted in this condition; set a model name when red: llm
+temperature: 0.0
+noise_level: 0.0
+
+# Reward weights (placeholders for the co-evolution loop, T24).
+alpha1: 1.0
+alpha2: 1.0
+beta1: 1.0
+beta2: 1.0
+beta3: 1.0
+beta4: 1.0
+
+playbook:
+  min_confidence: 0.0
+  restore_after: 2
+  cooldown: 3
+
+# Keep tuning and held-out test seeds separate.
+tuning_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+test_seeds: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+
+real_episode:
+  red: cage4_default   # cage4_default | aggressive | stealthy | deception_aware | hit_and_run (HELD OUT, test seeds only) | llm
+  blue: passive        # passive | decoy
+  rules: configs/static_blue_rules.json   # detector rule set; remove the line for "no rules"

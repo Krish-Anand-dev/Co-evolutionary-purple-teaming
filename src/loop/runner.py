@@ -98,8 +98,13 @@ def run_experiment(
     max_workers: int = 1,
     seed_set: str = "tuning",
     episode_fn: Callable[..., EpisodeResult] = run_mock_episode,
+    round_extras_fn: Callable[[list[EpisodeResult]], dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """Run episodes over the selected configured seed set."""
+    """Run episodes over the selected configured seed set.
+
+    round_extras_fn (optional, T28): called with the episode results of one (seed, round); the dict it returns is merged into
+    that round's record, so real runs can fill precision, recall, fpr, ... instead of the mock's nulls. Default: unchanged.
+    """
     if max_workers < 1:
         raise ValueError("max_workers must be at least 1.")
 
@@ -184,7 +189,7 @@ def run_experiment(
                     / len(round_results)
                 )
 
-                experiment_log.log_round({
+                round_record = {
                     "run_id": run_id,
                     "condition": config.condition,
                     "seed": seed,
@@ -198,7 +203,10 @@ def run_experiment(
                     "red_success": None,
                     "time_to_detect": None,
                     "mock_mean_reward": mean_reward,
-                })
+                }
+                if round_extras_fn is not None:
+                    round_record.update(round_extras_fn(round_results))
+                experiment_log.log_round(round_record)
 
     summary = {
         "run_id": run_id,
