@@ -1,4 +1,3 @@
-
 # Ollama LLM Benchmark
 
 ## Purpose
@@ -21,7 +20,7 @@ No additional Python packages are required. The script uses Python's standard li
 
 ## Prepare Ollama
 
-Start Ollama and pull the models you want to test. Include models in both the 3–4B and 7–8B parameter ranges where available.
+Start Ollama and pull the models you want to test. Include models in both the 3-4B and 7-8B parameter ranges where available.
 
 Example:
 
@@ -50,7 +49,7 @@ Default settings:
 - 1 warm-up call per model (excluded from measurements)
 - 10 measured calls per model
 - Temperature: 0.2
-- Maximum generated tokens: 250
+- Maximum generated tokens: 200
 - Request timeout: 600 seconds
 
 ## Optional arguments
@@ -60,7 +59,7 @@ Default settings:
 | `--models` | Required | Comma-separated Ollama model tags |
 | `--runs` | 10 | Measured calls per model |
 | `--warmup` | 1 | Warm-up calls per model |
-| `--num-predict` | 250 | Maximum generated tokens |
+| `--num-predict` | 200 | Maximum generated tokens |
 | `--temperature` | 0.2 | Generation temperature |
 | `--seed` | 42 | Base random seed |
 | `--timeout` | 600 | Request timeout in seconds |

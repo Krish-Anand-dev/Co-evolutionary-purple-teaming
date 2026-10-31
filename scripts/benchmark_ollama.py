@@ -270,7 +270,7 @@ def main() -> int:
     parser.add_argument("--host", default="http://localhost:11434")
     parser.add_argument("--runs", type=int, default=10)
     parser.add_argument("--warmup", type=int, default=1)
-    parser.add_argument("--num-predict", type=int, default=250)
+    parser.add_argument("--num-predict", type=int, default=200)
     parser.add_argument("--temperature", type=float, default=0.2)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--timeout", type=float, default=600)
