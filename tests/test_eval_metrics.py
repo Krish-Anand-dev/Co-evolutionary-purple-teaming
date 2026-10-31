@@ -6,7 +6,7 @@ import math
 
 import pytest
 
-from src.eval import (EpisodeMetrics, bootstrap_ci, compare_conditions, episodes_from_step_records, evaluate_episode,
+from src.eval import (bootstrap_ci, compare_conditions, episodes_from_step_records, evaluate_episode,
                       format_table, paired_diff_ci, read_jsonl, red_success, round_metrics, sign_flip_pvalue,
                       split_records, summarise, write_csv)
 from src.eval.stats import _quantile
