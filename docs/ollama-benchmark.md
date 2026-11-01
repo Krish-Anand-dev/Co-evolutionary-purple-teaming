@@ -1,5 +1,7 @@
 # Ollama LLM Benchmark
 
+> **Which benchmark do we use?** Our experiments run on llama.cpp `llama-server`, not Ollama. The benchmark that fed the compute sheet (T09) is `scripts/benchmark_llamaserver.py` (real Blue prompt, results in `docs/llm-speed-benchmark.md`). This Ollama script is an optional cross-check only; do not use its numbers for the compute sheet.
+
 ## Purpose
 
 Measures local Ollama model performance using a realistic SOC detection-engineering prompt.
@@ -49,7 +51,7 @@ Default settings:
 - 1 warm-up call per model (excluded from measurements)
 - 10 measured calls per model
 - Temperature: 0.2
-- Maximum generated tokens: 200
+- Maximum generated tokens: 800 (our real rule-writing answers are about 530-760 tokens; a lower cap cuts the JSON off)
 - Request timeout: 600 seconds
 
 ## Optional arguments
@@ -59,7 +61,7 @@ Default settings:
 | `--models` | Required | Comma-separated Ollama model tags |
 | `--runs` | 10 | Measured calls per model |
 | `--warmup` | 1 | Warm-up calls per model |
-| `--num-predict` | 200 | Maximum generated tokens |
+| `--num-predict` | 800 | Maximum generated tokens |
 | `--temperature` | 0.2 | Generation temperature |
 | `--seed` | 42 | Base random seed |
 | `--timeout` | 600 | Request timeout in seconds |
